@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
-import Layout from "./components/Layout.js/Layout";
+import Layout from "./components/Layout/Layout";
 
 import Auth from "./pages/Auth";
 import Dashboard from "./pages/Dashboard";
