@@ -1,18 +1,37 @@
 import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
+import Layout from "./components/Layout.js/Layout";
 
-import Login from "./pages/Login";
+import Auth from "./pages/Auth";
+import Dashboard from "./pages/Dashboard";
+import FormDisplay from "./pages/FormDisplay";
+import FormEdit from "./pages/FormEdit";
+import FormResponses from "./pages/FormResponses";
 
 function App() {
   return (
     <BrowserRouter>
-      <Switch>
-        <Route path="/" exact>
-          <Redirect to="/login" />
-        </Route>
-        <Route path="/login">
-          <Login />
-        </Route>
-      </Switch>
+      <Layout>
+        <Switch>
+          <Route path="/" exact>
+            <Redirect to="/login" />
+          </Route>
+          <Route path="/auth">
+            <Auth />
+          </Route>
+          <Route path="/home">
+            <Dashboard />
+          </Route>
+          <Route path="/responses">
+            <FormResponses />
+          </Route>
+          <Route path="/form">
+            <FormDisplay />
+          </Route>
+          <Route path="/edit">
+            <FormEdit />
+          </Route>
+        </Switch>
+      </Layout>
     </BrowserRouter>
   );
 }
