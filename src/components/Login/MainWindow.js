@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 import YangLogo from '../../Assets/YangLOGO.svg';
 import BottomSVG from './Group 8.svg';
 import classes from './Login.module.css';
@@ -22,6 +22,7 @@ function Login() {
 
     const formSubmitHandler = function (e) {
         e.preventDefault();
+        console.log(inputCredential);
     }
 
     return (
