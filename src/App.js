@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
+import Login from "./components/Login/Login";
 
 import Auth from "./pages/Auth";
 import Dashboard from "./pages/Dashboard";
@@ -14,6 +15,9 @@ function App() {
         <Switch>
           <Route path="/" exact>
             <Redirect to="/login" />
+          </Route>
+          <Route path="/login">
+            <Login />
           </Route>
           <Route path="/auth">
             <Auth />

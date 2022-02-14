@@ -3,30 +3,30 @@ import { Link } from "react-router-dom";
 import classes from "./MainNavigation.module.css";
 
 const MainNavigation = () => {
-  const isLoggedIn = true;
+  const isLoggedIn = false;
 
   return (
-    <header className={classes.header}>
+    <header className={ classes.header }>
       <Link to="/">
-        <div className={classes.logo}>Yang form</div>
+        <div className={ classes.logo }>Yang form</div>
       </Link>
       <nav>
         <ul>
-          {!isLoggedIn && (
+          { !isLoggedIn && (
             <li>
               <Link to="/auth">Login</Link>
             </li>
-          )}
-          {isLoggedIn && (
+          ) }
+          { isLoggedIn && (
             <li>
               <Link to="/home">Profile</Link>
             </li>
-          )}
-          {isLoggedIn && (
+          ) }
+          { isLoggedIn && (
             <li>
               <button>Logout</button>
             </li>
-          )}
+          ) }
         </ul>
       </nav>
     </header>
