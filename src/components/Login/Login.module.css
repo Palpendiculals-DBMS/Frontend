@@ -1,0 +1,89 @@
+.mainBody {
+	width: 100vw;
+	height: 100vh;
+}
+
+.navbar {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 50px 0;
+}
+
+.bottom-svg {
+	width: 100%;
+	height: auto;
+	position: absolute;
+	bottom: 0;
+	z-index: -1;
+}
+
+.LoginModal {
+	display: flex;
+	justify-content: center;
+}
+
+.LoginModal-main {
+	border: 1px solid lightgray;
+	border-radius: 0 0 5px 5px;
+	border-top: none;
+	background-color: white;
+	padding: 50px 40px;
+	color: var(--grey-text);
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.log-In-Top {
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.log-In-Top h2 {
+	color: black;
+	font-size: 20px;
+}
+
+.log-In-Top p {
+	font-size: 12px;
+	letter-spacing: 0.5px;
+}
+
+.mainForm {
+	display: flex;
+	flex-direction: column;
+}
+
+.LogInButton {
+	background: #fc0707;
+	padding: 10px 45px;
+	/* button / accent default */
+	border: none;
+	box-shadow: 0px 4px 12px rgba(55, 81, 255, 0.24);
+	border-radius: 8px;
+	margin-top: 10px;
+	color: white;
+}
+
+.label {
+	letter-spacing: 0.5px;
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.input {
+	margin: 5px 0;
+	background: #fcfdfe7e;
+	height: 30px;
+	width: 100%;
+	border: 1px solid #b2b2b3;
+	box-sizing: border-box;
+	border-radius: 8px;
+}
+
+.Sign-up {
+	color: var(--primary);
+}
