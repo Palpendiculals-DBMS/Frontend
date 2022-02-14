@@ -1,6 +1,9 @@
 .mainBody {
 	width: 100vw;
 	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .navbar {
@@ -21,6 +24,7 @@
 .LoginModal {
 	display: flex;
 	justify-content: center;
+	/* width: 70vw; */
 }
 
 .LoginModal-main {
@@ -28,11 +32,13 @@
 	border-radius: 0 0 5px 5px;
 	border-top: none;
 	background-color: white;
-	padding: 50px 40px;
+	padding: 50px 30px;
+	padding-top: 20px;
 	color: var(--grey-text);
 	display: flex;
 	flex-direction: column;
-	gap: 10px;
+	gap: 30px;
+	width: 20vw;
 }
 
 .log-In-Top {
@@ -49,12 +55,12 @@
 
 .log-In-Top p {
 	font-size: 12px;
-	letter-spacing: 0.5px;
 }
 
 .mainForm {
 	display: flex;
 	flex-direction: column;
+	gap: 10px;
 }
 
 .LogInButton {
@@ -68,22 +74,47 @@
 	color: white;
 }
 
+.LogInButton:hover {
+	cursor: pointer;
+	background: #f00707;
+	/* box-shadow: none; */
+}
+
+.LogInButton:active {
+	transform: translateY(1px);
+}
+
 .label {
-	letter-spacing: 0.5px;
-	font-size: 14px;
-	font-weight: 600;
+	font-size: 11px;
+	font-weight: 700;
 }
 
 .input {
-	margin: 5px 0;
-	background: #fcfdfe7e;
+	background: #f8f8f8;
 	height: 30px;
 	width: 100%;
 	border: 1px solid #b2b2b3;
 	box-sizing: border-box;
 	border-radius: 8px;
+	padding: 0 10px;
+}
+
+.input:focus {
+	/* outline-color: rgba(0, 0, 0, 0); */
+	outline: none;
+	border: 1px solid #363636;
+}
+
+.log-in-bottom p {
+	text-align: center;
+	font-size: 12px;
 }
 
 .Sign-up {
 	color: var(--primary);
+	font-size: 12px;
+	cursor: pointer;
+}
+
+.sign-up:hover {
 }

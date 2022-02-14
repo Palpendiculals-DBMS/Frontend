@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
-import Login from "./components/Login/Login";
+import MainWindow from "./components/Login/MainWindow";
 
 import Auth from "./pages/Auth";
 import Dashboard from "./pages/Dashboard";
@@ -9,6 +9,7 @@ import FormEdit from "./pages/FormEdit";
 import FormResponses from "./pages/FormResponses";
 
 function App() {
+
   return (
     <BrowserRouter>
       <Layout>
@@ -17,7 +18,7 @@ function App() {
             <Redirect to="/login" />
           </Route>
           <Route path="/login">
-            <Login />
+            <MainWindow />
           </Route>
           <Route path="/auth">
             <Auth />
