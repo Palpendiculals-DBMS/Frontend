@@ -98,12 +98,16 @@
 	box-sizing: border-box;
 	border-radius: 8px;
 	padding: 0 10px;
+	font-size: 15px;
+	font-weight: 500;
+	color: rgb(119, 119, 119);
 }
 
 .input:focus {
 	/* outline-color: rgba(0, 0, 0, 0); */
 	outline: none;
 	border: 1px solid #363636;
+	/* box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2); */
 }
 
 .log-in-bottom p {

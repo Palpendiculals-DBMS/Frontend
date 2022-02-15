@@ -3,7 +3,7 @@ import YangLogo from '../../Assets/YangLOGO.svg';
 import BottomSVG from './Group 8.svg';
 import classes from './Login.module.css';
 
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import axios from 'axios'
 
 function MainWindow(props) {
@@ -13,7 +13,7 @@ function MainWindow(props) {
                 <nav className={ classes.navbar }>
                     <img src={ YangLogo } alt="Yang Logo" />
                 </nav>
-                {props.children}
+                { props.children }
                 <img className={ classes["bottom-svg"] } src={ BottomSVG } alt="Bottom SVG" />
             </section>
         </div>
@@ -60,7 +60,7 @@ function Login() {
                     <div className={ classes["log-in-bottom"] }>
                         <p>Dont have an account
                             <Link to={ "/signup" }>
-                            <span className={ `ml-1 ${classes["Sign-up"]}` }>SignUp</span>
+                                <span className={ `ml-1 ${classes["Sign-up"]}` }>SignUp</span>
                             </Link>
 
                         </p>
@@ -81,7 +81,7 @@ function SignUp() {
         confirmPassword: ''
     });
 
-    const inputChangeHandler = function (e,type) {
+    const inputChangeHandler = function (e, type) {
         setSignUp({
             ...SignUp,
             [type]: e.target.value
@@ -91,7 +91,7 @@ function SignUp() {
     const onSubmit = async (e) => {
         e.preventDefault();
 
-        if(SignUp.password !== SignUp.confirmPassword){
+        if (SignUp.password !== SignUp.confirmPassword) {
             alert('Password and Confirm Password does not match');
             return;
         }
@@ -99,7 +99,7 @@ function SignUp() {
         // Email Regex
         const emailRegex = RegExp(/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/);
 
-        if(!emailRegex.test(SignUp.email)){
+        if (!emailRegex.test(SignUp.email)) {
             alert('Invalid Email');
             return;
         }
@@ -128,27 +128,27 @@ function SignUp() {
                 <div className={ classes["LoginModal-main"] }>
                     <div className={ classes["log-In-Top"] }>
                         <h2>SignUp</h2>
-                        <p>Sign Up into <span className={`text-red-500 px-1`}>Yang</span>Form</p>
+                        <p>Sign Up into<span className={ `text-red-500 px-1` }>Yang</span>Form</p>
                     </div>
-                    <form className={ classes.mainForm } onSubmit={onSubmit}>
+                    <form className={ classes.mainForm } onSubmit={ onSubmit }>
 
                         <label className={ classes.label }>NAME</label>
-                        <input className={ classes.input } onChange={(e) => inputChangeHandler(e,'name')} value={ SignUp.name } />
+                        <input className={ classes.input } onChange={ (e) => inputChangeHandler(e, 'name') } value={ SignUp.name } />
 
                         <label className={ classes.label }>EMAIL</label>
-                        <input className={ classes.input } onChange={(e) => inputChangeHandler(e,'email')} value={ SignUp.email } />
+                        <input className={ classes.input } onChange={ (e) => inputChangeHandler(e, 'email') } value={ SignUp.email } />
 
                         <label className={ classes.label }>PASSWORD</label>
-                        <input className={ classes.input } onChange={(e) => inputChangeHandler(e,'password')} value={SignUp.password} />
-                        
+                        <input className={ classes.input } onChange={ (e) => inputChangeHandler(e, 'password') } value={ SignUp.password } />
+
                         <label className={ classes.label }>CONFIRM PASSWORD</label>
-                        <input className={ classes.input } onChange={(e) => inputChangeHandler(e,'confirmPassword')} value={SignUp.confirmPassword} />
-                        <button className={ classes.LogInButton }>Log In</button>
+                        <input className={ classes.input } onChange={ (e) => inputChangeHandler(e, 'confirmPassword') } value={ SignUp.confirmPassword } />
+                        <button className={ classes.LogInButton }>Sign Up</button>
                     </form>
                     <div className={ classes["log-in-bottom"] }>
                         <p>Dont have an account
                             <Link to={ "/login" }>
-                            <span className={` ${classes["Sign-up"]}  ml-1`}>Login</span>
+                                <span className={ ` ${classes["Sign-up"]}  ml-1` }>Login</span>
                             </Link>
                         </p>
                     </div>
