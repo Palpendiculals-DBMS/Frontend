@@ -1,7 +1,14 @@
 import React from "react";
 
-const Auth = () => {
-  return <div>Login/ Register</div>;
-};
+import { SignUp, Login } from "../components/Login/MainWindow";
 
-export default Auth;
+const App = ({isSignUp}) => {
+
+  return (
+      <React.Fragment>
+          {isSignUp ? <SignUp /> : <Login />}
+      </React.Fragment>
+  )
+}
+
+export default App;
