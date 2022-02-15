@@ -11,7 +11,7 @@ function MainWindow(props) {
                 <nav className={ classes.navbar }>
                     <img src={ YangLogo } alt="Yang Logo" />
                 </nav>
-                {props.children}
+                { props.children }
                 <img className={ classes["bottom-svg"] } src={ BottomSVG } alt="Bottom SVG" />
             </section>
         </div>

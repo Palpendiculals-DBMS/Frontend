@@ -20,7 +20,7 @@ function App() {
   useEffect(() => {
     console.log(auth);
   }, [auth])
-  
+
   return (
     <BrowserRouter>
       <Switch>
@@ -30,7 +30,7 @@ function App() {
           return (
             <Route path={item.path}>
               {item.isAuth === true && auth.isAuthenticated !== true ?
-                ""
+                null
                 :
                 <item.component />
               }
