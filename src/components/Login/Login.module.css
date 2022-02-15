@@ -81,7 +81,8 @@
 }
 
 .LogInButton:active {
-	transform: translateY(1px);
+	/* transform: translateY(1px); */
+	transform: scale(0.99);
 }
 
 .label {
