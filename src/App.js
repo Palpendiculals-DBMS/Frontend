@@ -18,10 +18,10 @@ function App() {
             <Redirect to="/login" />
           </Route>
           <Route path="/login">
-            <Auth isSignUp={false} />
+            <Auth isSignUp={ false } />
           </Route>
-          <Route>
-            <Auth isSignUp={true} />
+          <Route path="/signup">
+            <Auth isSignUp={ true } />
           </Route>
           <Route path="/auth">
             <Auth />

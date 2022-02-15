@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
-
 import classes from "./MainNavigation.module.css";
+import YangLOGO from '../../Assets/YangLOGO.svg';
 
 const MainNavigation = () => {
-  const isLoggedIn = false;
+  const isLoggedIn = true;
 
   return (
     <header className={ classes.header }>
       <Link to="/">
-        <div className={ classes.logo }>Yang form</div>
+        <img src={ YangLOGO } alt="Yang LOGO"></img>
       </Link>
       <nav>
         <ul>
