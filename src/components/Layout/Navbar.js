@@ -1,6 +1,7 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import { removeAuthData } from '../../redux/auth/authSlice'
+import { Link, useHistory } from 'react-router-dom'
 
 import logo from '../../Assets/YangLOGO.svg'
 
@@ -27,8 +28,14 @@ function User(props) {
 function Navbar() {
 
     const auth = useSelector(state => state.auth);
+    const dispatch = useDispatch();
+    const history = useHistory();
+    console.log(auth);
 
-    console.log(auth)
+    const SignOut = () => {
+        dispatch(removeAuthData());
+        history.push('/');
+    }
 
     return (
         <>
@@ -39,10 +46,11 @@ function Navbar() {
                             <img src={logo} alt="" />
                         </Link>
                     </div>
-                    <button className='hover:bg-slate-200 p-3 rounded-lg transition-all'>
+                    <button className='hover:bg-slate-200 p-3 rounded-lg transition-all mr-10'>
                         Dashboard
                     </button>
 
+                    {auth.isAuthenticated ? <User user={auth.user} SignOut={SignOut} /> : null}
 
                 </div>
             </header>

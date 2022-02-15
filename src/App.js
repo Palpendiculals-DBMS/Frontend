@@ -29,10 +29,9 @@ function App() {
         {route.map((item, index) => {
           return (
             <Route path={item.path}>
-              {item.isAuth === true && auth.isAuthenticated !== true ?
-                null
-                :
-                <item.component />
+              {
+              item.isAuth === true && auth.isAuthenticated !== true ?
+                null:<item.component />
               }
             </Route>
           )
