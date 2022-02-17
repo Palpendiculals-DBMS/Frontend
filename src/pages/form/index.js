@@ -3,7 +3,7 @@ import Layout from "../../components/Layout/Layout";
 
 import { Switch, Route, useHistory } from "react-router-dom";
 import Dashboard from './Dashboard'
-import Form from './Form';
+import Form from './FormEdit';
 import FormDisplay from './FormDisplay'
 
 import { useSelector } from 'react-redux'
@@ -13,7 +13,7 @@ function Index() {
     const auth = useSelector((state) => state.auth);
     const history = useHistory();
     useEffect(() => {
-        if(!auth.isAuthenticated){
+        if (!auth.isAuthenticated) {
             history.push('/');
         }
     }, [auth]);
@@ -21,15 +21,17 @@ function Index() {
     return (
         <>
             <Layout>
-                <Route path="/dashboard">
-                    <Dashboard />
-                </Route>
-                <Route path={'/e/:id'}>
-                    <Form />
-                </Route>
-                <Route path={'/fill/:id'}>
-                    <FormDisplay />
-                </Route>
+                <Switch>
+                    <Route
+                        path="/form/dashboard"
+                        component={Dashboard}
+                    />
+
+                    <Route 
+                        path="/form/edit/:id"
+                        component={Form}
+                    />
+                </Switch>
             </Layout>
         </>
     )

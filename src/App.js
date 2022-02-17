@@ -28,12 +28,10 @@ function App() {
 
         {route.map((item, index) => {
           return (
-            <Route path={item.path}>
-              {
-              item.isAuth === true && auth.isAuthenticated !== true ?
-                null:<item.component />
-              }
-            </Route>
+              <Route
+                path={item.path}
+                component={item.isAuth && !auth.isAuthenticated ? null : item.component}
+              />
           )
         })}
 
