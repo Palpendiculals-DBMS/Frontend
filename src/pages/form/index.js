@@ -27,7 +27,7 @@ function Index() {
                         component={Dashboard}
                     />
 
-                    <Route 
+                    <Route
                         path="/form/edit/:id"
                         component={Form}
                     />
