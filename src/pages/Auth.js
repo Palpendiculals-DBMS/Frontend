@@ -1,6 +1,4 @@
-import React, { useState } from 'react'
-// import YangLogo from '../Assets/YangLOGO.svg';
-// import BottomSVG from '../components/Login/Group 8.svg';
+import React, { useState } from 'react';
 import classes from '../components/Login/Login.module.css';
 
 import { Link, useHistory } from 'react-router-dom';
@@ -46,28 +44,27 @@ function Login() {
             console.log(err);
             throw err;
         }
-
     }
 
     return (
         <MainWindow>
-            <div className={classes.LoginModal}>
-                <div className={classes["LoginModal-main"]}>
-                    <div className={classes["log-In-Top"]}>
+            <div className={ classes.LoginModal }>
+                <div className={ classes["LoginModal-main"] }>
+                    <div className={ classes["log-In-Top"] }>
                         <h2>Log In</h2>
                         <p>Enter your email and password</p>
                     </div>
-                    <form className={classes.mainForm} onSubmit={formSubmitHandler}>
-                        <label className={classes.label}>EMAIL</label>
-                        <input type={'email'} className={classes.input} onChange={emailInputHandler} value={emailInput}></input>
-                        <label className={classes.label}>PASSWORD</label>
-                        <input type="password" className={classes.input} onChange={passWordInputHandler} value={passwordInput}></input>
-                        <button className={classes.LogInButton}>Log In</button>
+                    <form className={ classes.mainForm } onSubmit={ formSubmitHandler }>
+                        <label className={ classes.label }>EMAIL</label>
+                        <input type={ 'email' } className={ classes.input } onChange={ emailInputHandler } value={ emailInput }></input>
+                        <label className={ classes.label }>PASSWORD</label>
+                        <input type="password" className={ classes.input } onChange={ passWordInputHandler } value={ passwordInput }></input>
+                        <button className={ classes.LogInButton }>Log In</button>
                     </form>
-                    <div className={classes["log-in-bottom"]}>
+                    <div className={ classes["log-in-bottom"] }>
                         <p>Dont have an account
-                            <Link to={"/signup"}>
-                                <span className={`ml-1 ${classes["Sign-up"]}`}>SignUp</span>
+                            <Link to={ "/signup" }>
+                                <span className={ `ml-1 ${classes["Sign-up"]}` }>SignUp</span>
                             </Link>
                         </p>
                     </div>
@@ -135,31 +132,31 @@ function SignUp() {
 
     return (
         <MainWindow>
-            <div className={classes.LoginModal}>
-                <div className={classes["LoginModal-main"]}>
-                    <div className={classes["log-In-Top"]}>
+            <div className={ classes.LoginModal }>
+                <div className={ classes["LoginModal-main"] }>
+                    <div className={ classes["log-In-Top"] }>
                         <h2>SignUp</h2>
-                        <p>Sign Up into <span className={`text-red-500 px-1`}>Yang</span>Form</p>
+                        <p>Sign Up into <span className={ `text-red-500 px-1` }>Yang</span>Form</p>
                     </div>
-                    <form className={classes.mainForm} onSubmit={onSubmit}>
+                    <form className={ classes.mainForm } onSubmit={ onSubmit }>
 
-                        <label className={classes.label}>NAME</label>
-                        <input className={classes.input} onChange={(e) => inputChangeHandler(e, 'name')} value={SignUp.name} />
+                        <label className={ classes.label }>NAME</label>
+                        <input className={ classes.input } onChange={ (e) => inputChangeHandler(e, 'name') } value={ SignUp.name } />
 
-                        <label className={classes.label}>EMAIL</label>
-                        <input className={classes.input} onChange={(e) => inputChangeHandler(e, 'email')} value={SignUp.email} />
+                        <label className={ classes.label }>EMAIL</label>
+                        <input className={ classes.input } onChange={ (e) => inputChangeHandler(e, 'email') } value={ SignUp.email } />
 
-                        <label  className={classes.label}>PASSWORD</label>
-                        <input type="password" className={classes.input} onChange={(e) => inputChangeHandler(e, 'password')} value={SignUp.password} />
+                        <label className={ classes.label }>PASSWORD</label>
+                        <input type="password" className={ classes.input } onChange={ (e) => inputChangeHandler(e, 'password') } value={ SignUp.password } />
 
-                        <label className={classes.label}>CONFIRM PASSWORD</label>
-                        <input type="password" className={classes.input} onChange={(e) => inputChangeHandler(e, 'confirmPassword')} value={SignUp.confirmPassword} />
-                        <button className={classes.LogInButton}>Sign Up</button>
+                        <label className={ classes.label }>CONFIRM PASSWORD</label>
+                        <input type="password" className={ classes.input } onChange={ (e) => inputChangeHandler(e, 'confirmPassword') } value={ SignUp.confirmPassword } />
+                        <button className={ classes.LogInButton }>Sign Up</button>
                     </form>
-                    <div className={classes["log-in-bottom"]}>
+                    <div className={ classes["log-in-bottom"] }>
                         <p>Back To
-                            <Link to={"/login"}>
-                                <span className={` ${classes["Sign-up"]}  ml-1`}>Login</span>
+                            <Link to={ "/login" }>
+                                <span className={ ` ${classes["Sign-up"]}  ml-1` }>Login</span>
                             </Link>
                         </p>
                     </div>

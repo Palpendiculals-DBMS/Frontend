@@ -1,14 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    isAuthenticated: false,
-    user: null,
-    token: ''
+    isAuthenticated: true,
+    user: 'Farhan Akhtar',
+    token: 'Tera baap'
 };
 
-
-
-const setauth_data = (state,action) => {
+const setauth_data = (state, action) => {
     console.log(action);
     state.isAuthenticated = true;
     state.user = action.payload.user;
@@ -31,8 +29,8 @@ const get_localAuth = (state) => {
     return state;
 }
 
-const remove_authData = (state,action) => {
-    state.isAuthenticated = false;
+const remove_authData = (state, action) => {
+    state.isAuthenticated = true;
     state.user = null;
     state.token = null;
 
@@ -46,19 +44,19 @@ export const AuthSlice = createSlice({
     name: "auth",
     initialState,
     reducers: {
-        setAuthData: (state,actions) => {
-            state = setauth_data(state,actions);
+        setAuthData: (state, actions) => {
+            state = setauth_data(state, actions);
         },
         getAuthData: (state) => {
             console.log("Get Auth Data");
-            state =  get_localAuth(state);
+            state = get_localAuth(state);
         },
-        removeAuthData: (state,actions) => {
-            state = remove_authData(state,actions);
+        removeAuthData: (state, actions) => {
+            state = remove_authData(state, actions);
         }
     }
 });
 
-export const {setAuthData, getAuthData, removeAuthData} = AuthSlice.actions;
+export const { setAuthData, getAuthData, removeAuthData } = AuthSlice.actions;
 
 export default AuthSlice.reducer;

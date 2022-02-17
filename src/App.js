@@ -5,7 +5,7 @@ import route from "./routes";
 import { useSelector, useDispatch } from "react-redux";
 import { getAuthData } from "./redux/auth/authSlice";
 
-import Form from './pages/form/index';
+// import Form from './pages/form/index';
 
 function App() {
 
@@ -14,7 +14,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAuthData());
+    // dispatch(getAuthData());
   }, []);
 
   useEffect(() => {
@@ -26,20 +26,20 @@ function App() {
       <Switch>
 
 
-        {route.map((item, index) => {
+        { route.map((item, index) => {
           return (
-            <Route path={item.path}>
+            <Route path={ item.path }>
               {
-              item.isAuth === true && auth.isAuthenticated !== true ?
-                null:<item.component />
+                item.isAuth === true && auth.isAuthenticated !== true ?
+                  null : <item.component />
               }
             </Route>
           )
-        })}
+        }) }
 
 
-        <Route to={`/`}>
-          <Redirect to={'/login'} />
+        <Route to={ `/` }>
+          <Redirect to={ '/login' } />
         </Route>
 
       </Switch>
