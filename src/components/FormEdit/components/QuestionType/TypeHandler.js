@@ -1,6 +1,7 @@
 import React from "react";
 import ShortText from "./ShortText";
 import LongText from "./LongText";
+import Radio from "./Radio";
 
 function TypeHandler({ question, index }) {
   switch (question.type) {
@@ -16,7 +17,12 @@ function TypeHandler({ question, index }) {
           <LongText question={question} index={index} />
         </React.Fragment>
       );
-      break;
+    case "radio":
+      return (
+        <React.Fragment>
+          <Radio question={question} index={index} />
+        </React.Fragment>
+      );
     default:
       break;
   }
