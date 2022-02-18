@@ -1,13 +1,14 @@
-import React, { Fragment } from 'react'
-import classes from './Modal.module.css'
+import React, { Fragment } from 'react';
+import classes from './Modal.module.css';
+import { BsThreeDotsVertical } from 'react-icons/bs';
 
+const Modal = (props) => {
 
-const Modal = () => {
     return (
         <Fragment>
             <div className={ classes.modal }>
                 <div className={ classes.modalHeading }>
-                    <h2>Anti Romeo Squad</h2>
+                    <h2>{ props.title }</h2>
                     <hr></hr>
                 </div>
                 <div className={ classes.modalButtons }>
@@ -15,7 +16,7 @@ const Modal = () => {
                     <button>View Form</button>
                 </div>
                 <div className={ classes.optionButton }>
-                    <button>3 dande wala button</button>
+                    <button><BsThreeDotsVertical></BsThreeDotsVertical></button>
                 </div>
             </div>
         </Fragment>

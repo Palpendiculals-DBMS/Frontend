@@ -26,18 +26,18 @@ function App() {
       <Switch>
 
 
-        {route.map((item, index) => {
+        { route.map((item, index) => {
           return (
             <Route
-              path={item.path}
-              component={item.isAuth && !auth.isAuthenticated ? null : item.component}
+              path={ item.path }
+              component={ item.isAuth && !auth.isAuthenticated ? null : item.component }
             />
           )
-        })}
+        }) }
 
 
-        <Route to={`/`}>
-          <Redirect to={'/login'} />
+        <Route to={ `/` }>
+          <Redirect to={ '/login' } />
         </Route>
 
       </Switch>
