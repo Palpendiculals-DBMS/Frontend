@@ -5,17 +5,22 @@
 	justify-content: space-between;
 	padding: 15px 10px;
 	width: 15vw;
+	height: 250px;
 	color: white;
 	background-color: rgba(253, 53, 53, 0.69);
-	/* border: 2px solid rgba(253, 53, 53, 0.69); */
 	border-radius: 11px;
+	transition: all 0.3s ease-out;
+}
 
+.modal:hover {
+	background-color: rgba(253, 53, 53, 0.75);
 	filter: drop-shadow(0px 100px 80px rgba(251, 45, 45, 0.07))
 		drop-shadow(0px 41.7776px 33.4221px rgba(251, 45, 45, 0.0503198))
 		drop-shadow(0px 22.3363px 17.869px rgba(251, 45, 45, 0.0417275))
 		drop-shadow(0px 12.5216px 10.0172px rgba(251, 45, 45, 0.035))
 		drop-shadow(0px 6.6501px 5.32008px rgba(251, 45, 45, 0.0282725))
 		drop-shadow(0px 2.76726px 2.21381px rgba(251, 45, 45, 0.0196802));
+	backdrop-filter: blur(4px);
 }
 
 .modalHeading h2 {
@@ -45,9 +50,36 @@
 	height: 5vh;
 	width: 60%;
 	padding: 4px;
+	transition: all 0.2s ease-out;
+}
+
+.modalButtons button:hover {
+	box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.144);
 }
 
 .optionButton {
 	display: flex;
 	justify-content: flex-end;
+}
+
+/*************BLANK MODAL CSS*************/
+.BlankModal {
+	padding: 15px 10px;
+	width: 15vw;
+	height: 250px;
+	display: flex;
+	flex-direction: column;
+	background: #ffffff;
+	border: 2px solid #fd6767;
+	box-sizing: border-box;
+	box-shadow: 0px 100px 80px rgba(216, 40, 40, 0.07),
+		0px 12.5216px 10.0172px rgba(216, 40, 40, 0.035);
+	border-radius: 6px;
+}
+
+.plusDiv {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
 }

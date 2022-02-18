@@ -3,24 +3,11 @@
 	flex-direction: column;
 	align-items: center;
 	padding: 20px;
-	gap: 20px;
-}
-
-.recentsContainer {
-	display: flex;
-	flex-direction: column;
-	gap: 10px;
 }
 
 .recentHeading {
 	font-size: 18px;
 	font-weight: 600;
-}
-
-.recentModals {
-	display: flex;
-	align-items: center;
-	gap: 50px;
 }
 
 .all-forms {
