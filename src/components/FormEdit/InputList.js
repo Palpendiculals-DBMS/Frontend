@@ -29,12 +29,17 @@ function InputList(props) {
   const handleClick = (e, type) => {
     e.preventDefault();
     formDataActions.addNewQuestion(type);
+    setTimeout(() => {
+      window.scrollTo({ left: 0, top: document.body.scrollHeight + 100, behavior: "smooth" });
+    }, 100);
+
+
   };
 
   return (
     <React.Fragment>
-      <div className={`font-body ${props.className}`}>
-        <div className={`p-2 flex flex-col w-52`}>
+      <div className={`font-body  ${props.className}`}>
+        <div className={`p-2 flex flex-col w-52 fixed`}>
           {QuestionsList.map((item, index) => {
             return (
               <button

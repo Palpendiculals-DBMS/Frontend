@@ -3,6 +3,7 @@ import React, { useEffect } from 'react'
 import { FormEditContext } from '../../../pages/form/FormEdit'
 import TypeHandler from './QuestionType/TypeHandler';
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import ScrollToBottom from 'react-scroll-to-bottom';
 
 function DisplayEditableQuestions(props) {
 
@@ -33,7 +34,6 @@ function DisplayEditableQuestions(props) {
 
     return (
         <React.Fragment>
-
             <DragDropContext
                 onDragEnd={handleDragEnd}
             >

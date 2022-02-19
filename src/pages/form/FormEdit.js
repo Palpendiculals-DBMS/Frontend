@@ -15,7 +15,7 @@ const FormEdit = () => {
     <>
       <FormEditContext.Provider value={{ formData, formDataActions }}>
         <div className={`min-h-screen w-full bg-slate-600/20 flex flex-row`}>
-          <InputList className={`w-2/12 mt-16`} />
+          <InputList className={`w-2/12 mt-1`} />
           <div className={`w-9/12`}>
             {/* Button container */}
             <div className={`flex flex-row mt-5`}>
