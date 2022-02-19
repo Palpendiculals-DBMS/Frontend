@@ -4,9 +4,8 @@ const initialState = [
   {
     id: 1,
     type: "shorttext",
-    title: "Enter Your Question",
-    isRequired: true,
-    choices: null,
+    isRequired: false,
+    title: "Untitled Question",
   },
 ];
 
@@ -52,18 +51,28 @@ export const UseFormData = () => {
   };
 
   const UpdateFormData = (question, id) => {
+    console.log("Updating", question, id);
     setFormData((prevState) => {
-      const newState = prevState;
-      newState[id] = question;
-
+      const newState = prevState.map((item) => {
+        if (item.id === id) {
+          return question;
+        } else {
+          return item;
+        }
+      });
       return newState;
     });
   };
 
+  const getElementbyId = (id) => {
+    const element = formData.find((item) => item.id === id);
+    return element;
+  };
+
   const deleteQuestion = (id) => {
     setFormData((prevState) => {
-      const newState = prevState;
-      newState.splice(id, 1);
+      let newState = [...prevState];
+      newState = newState.filter((question) => question.id !== id);
       return newState;
     });
   };
@@ -110,6 +119,11 @@ export const UseFormData = () => {
     });
   };
 
+  const reorder = (result, startIndex, endIndex) => {
+    setFormData([...result]);
+
+  }
+
   return [
     formData,
     {
@@ -120,6 +134,8 @@ export const UseFormData = () => {
       UpdateFormData,
       deleteQuestion,
       addNewQuestion,
+      reorder,
+      getElementbyId
     },
   ];
 };

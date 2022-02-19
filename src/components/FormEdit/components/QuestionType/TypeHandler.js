@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ShortText from "./ShortText";
 import LongText from "./LongText";
 import Radio from "./Radio";
 
-function TypeHandler({ question, index }) {
+const Print = ({ question, index }) => {
   switch (question.type) {
     case "shorttext":
       return (
@@ -28,6 +28,20 @@ function TypeHandler({ question, index }) {
   }
 
   return <></>;
+}
+
+function TypeHandler({ question, index }) {
+
+  // const [QuestionState, setQuestionState] = useState(question);
+
+  // useEffect(() => {
+  //   console.log("Question", question, index);
+  //   setQuestionState(question);
+  // }, [question, index]);
+
+  return <>
+    <Print question={question} index={index} />
+  </>;
 }
 
 export default TypeHandler;

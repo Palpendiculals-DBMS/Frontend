@@ -12,8 +12,8 @@ function LongText({ question, index }) {
   const [QuestionState, setQuestionState] = useState(question);
 
   useEffect(() => {
-    formDataActions.UpdateFormData(QuestionState, index);
-  }, [QuestionState, formDataActions, index]);
+    formDataActions.UpdateFormData(QuestionState, QuestionState.id);
+  }, [QuestionState]);
 
   const handleChange = (e, type) => {
     setQuestionState({
@@ -29,11 +29,17 @@ function LongText({ question, index }) {
     });
   };
 
+  const deleteQuestion = () => {
+    console.log("Deleting", QuestionState.id);
+    formDataActions.deleteQuestion(QuestionState.id);
+  };
+
   return (
     <React.Fragment>
       <QuestionLayout
-        className={`flex flex-col p-3 my-4 w-3/4 p-3 border-2 rounded-md border-dotted`}
+        className={`flex flex-col p-3 border-2 rounded-md border-dotted`}
         QuestionState={QuestionState}
+        DeleteQuestion={deleteQuestion}
         toggleQuestion={toggleQuestion}
       >
         <Input

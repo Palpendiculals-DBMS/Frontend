@@ -24,6 +24,7 @@
 }
 
 .bottom-svg {
+	opacity: 0.5;
 	position: fixed;
 	bottom: -20%;
 	z-index: -1;

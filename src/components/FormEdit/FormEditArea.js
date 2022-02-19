@@ -10,17 +10,19 @@ function FormEditArea() {
   const { formData, formDataActions } = React.useContext(FormEditContext);
 
   return (
-    <div className={`h-3/5 overflow-y-scroll mt-5 shadow-xl`}>
+    <div className={`overflow-y-scroll mt-5 shadow-xl`}>
       <div className={`bg-white p-10`}>
         <Input
           className={`w-1/2 p-3 text-xl`}
           value={formDataActions.getFormInfo().title}
+          onChange={(e) => formDataActions.setFormTitle(e.target.value)}
           placeholder="Enter Form Title"
         />
 
         <Textarea
           className={`w-3/4 p-1 mt-10 text-sm h-24 resize-none`}
           value={formDataActions.getFormInfo().description}
+          onChange={(e) => formDataActions.setFormDescription(e.target.value)}
           placeholder="Enter Form Description"
         />
 
