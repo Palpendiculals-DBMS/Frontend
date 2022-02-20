@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from 'react-redux'
 import { removeAuthData } from '../../redux/auth/authSlice'
 import { Link, useHistory } from 'react-router-dom'
 
 import logo from '../../Assets/YangLOGO.svg'
+import useScrollPosition from "@react-hook/window-scroll";
 
 
 
@@ -26,7 +27,10 @@ function User(props) {
 }
 
 function Navbar() {
-
+    const [scrollPosition, setScrollPosition] = useState({
+        y: 0,
+        isScrollUp: true,
+    });
     const auth = useSelector(state => state.auth);
     const dispatch = useDispatch();
     const history = useHistory();
@@ -37,10 +41,23 @@ function Navbar() {
         history.push('/');
     }
 
+    const ScrollY = useScrollPosition(60);
+    useEffect(() => {
+        setScrollPosition({
+            y: ScrollY,
+            isScrollUp: ScrollY <= scrollPosition.y,
+        });
+    }, [ScrollY]);
+
+
     return (
         <>
-            <header class="text-gray-600 font-body shadow-lg">
-                <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+            <header class="fixed h-20 overflow-hidden w-full bg-white transition-all text-gray-600 font-body shadow-lg z-50"
+                style={{
+                    top: scrollPosition.isScrollUp === true ? "0px" : "-100px",
+                }}
+            >
+                <div class="container mx-auto flex flex-wrap p-3 flex-col md:flex-row items-center">
                     <div className={`flex-grow`}>
                         <Link to={'/form/dashboard'}>
                             <img src={logo} alt="" />
@@ -54,6 +71,7 @@ function Navbar() {
 
                 </div>
             </header>
+            <div className={`mt-20`} />
         </>
     )
 }

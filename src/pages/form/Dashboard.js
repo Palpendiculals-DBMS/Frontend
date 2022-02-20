@@ -5,24 +5,24 @@ import BottomSVG from '../../components/Login/Group 8.svg';
 import classes from './DashBoard.module.css';
 
 
-const nameArray = ["Bhadwa", "SAE", "Bewda", "Kasol Scam"];
+const nameArray = ["Question1", "Form2", "Form3", "Form4"];
 
 const Dashboard = () => {
 
   return (
     <div>
-      <div className={ classes.gridContainer }>
-        <div className={ classes["all-forms"] }>
-          <div className={ classes.recentHeading }>
+      <div className={classes.gridContainer}>
+        <div className={classes["all-forms"]}>
+          <div className={classes.recentHeading}>
             <h2>All Forms</h2>
           </div>
-          <div className={ classes["all-forms-grid"] }>
+          <div className={classes["all-forms-grid"]}>
             <BlankModal></BlankModal>
-            { nameArray.map((item, index) => { return <Modal key={ index } title={ item } /> }) }
+            {nameArray.map((item, index) => { return <Modal key={index} title={item} /> })}
           </div>
         </div>
       </div>
-      <img className={ classes["bottom-svg"] } src={ BottomSVG } alt="Bottom SVG" />
+      <img className={classes["bottom-svg"]} src={BottomSVG} alt="Bottom SVG" />
     </div>
   )
 };

@@ -4,6 +4,8 @@ import { BrowserRouter, Route, Redirect, Switch, useHistory } from "react-router
 import route from "./routes";
 import { useSelector, useDispatch } from "react-redux";
 import { getAuthData } from "./redux/auth/authSlice";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 // import Form from './pages/form/index';
 
@@ -26,21 +28,22 @@ function App() {
       <Switch>
 
 
-        { route.map((item, index) => {
+        {route.map((item, index) => {
           return (
             <Route
-              path={ item.path }
-              component={ item.isAuth && !auth.isAuthenticated ? null : item.component }
+              path={item.path}
+              component={item.isAuth && !auth.isAuthenticated ? null : item.component}
             />
           )
-        }) }
+        })}
 
 
-        <Route to={ `/` }>
-          <Redirect to={ '/login' } />
+        <Route to={`/`}>
+          <Redirect to={'/login'} />
         </Route>
 
       </Switch>
+      <ToastContainer />
     </BrowserRouter>
   );
 }
