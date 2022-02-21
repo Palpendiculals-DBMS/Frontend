@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import ShortText from "./ShortText";
 import LongText from "./LongText";
 import Radio from "./Radio";
+import Checkbox from "./Checkbox";
 
 const Print = ({ question, index }) => {
   switch (question.type) {
@@ -23,15 +24,20 @@ const Print = ({ question, index }) => {
           <Radio question={question} index={index} />
         </React.Fragment>
       );
+    case "checkbox":
+      return (
+        <React.Fragment>
+          <Checkbox question={question} index={index} />
+        </React.Fragment>
+      );
     default:
       break;
   }
 
   return <></>;
-}
+};
 
 function TypeHandler({ question, index }) {
-
   // const [QuestionState, setQuestionState] = useState(question);
 
   // useEffect(() => {
@@ -39,9 +45,11 @@ function TypeHandler({ question, index }) {
   //   setQuestionState(question);
   // }, [question, index]);
 
-  return <>
-    <Print question={question} index={index} />
-  </>;
+  return (
+    <>
+      <Print question={question} index={index} />
+    </>
+  );
 }
 
 export default TypeHandler;

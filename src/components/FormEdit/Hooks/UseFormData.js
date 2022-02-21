@@ -107,6 +107,19 @@ export const UseFormData = () => {
             },
           ],
         };
+      case "checkbox":
+        return {
+          id: formData.length + 1,
+          type: type,
+          isRequired: false,
+          title: "Untitled Question",
+          options: [
+            {
+              checked: false,
+              title: "Untitled Option",
+            },
+          ],
+        };
     }
   };
 
@@ -121,8 +134,7 @@ export const UseFormData = () => {
 
   const reorder = (result, startIndex, endIndex) => {
     setFormData([...result]);
-
-  }
+  };
 
   return [
     formData,
@@ -135,7 +147,7 @@ export const UseFormData = () => {
       deleteQuestion,
       addNewQuestion,
       reorder,
-      getElementbyId
+      getElementbyId,
     },
   ];
 };

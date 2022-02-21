@@ -2,6 +2,7 @@ import React from "react";
 import { GrTextAlignFull } from "react-icons/gr";
 import { IoIosRadioButtonOn } from "react-icons/io";
 import { MdShortText } from "react-icons/md";
+import { ImCheckboxChecked } from "react-icons/im";
 
 import { FormEditContext } from "../../pages/form/FormEdit";
 
@@ -24,16 +25,23 @@ function InputList(props) {
       title: "Single Choice",
       type: "radio",
     },
+    {
+      icon: ImCheckboxChecked,
+      title: "Multi Choice",
+      type: "checkbox",
+    },
   ];
 
   const handleClick = (e, type) => {
     e.preventDefault();
     formDataActions.addNewQuestion(type);
     setTimeout(() => {
-      window.scrollTo({ left: 0, top: document.body.scrollHeight + 100, behavior: "smooth" });
+      window.scrollTo({
+        left: 0,
+        top: document.body.scrollHeight + 100,
+        behavior: "smooth",
+      });
     }, 100);
-
-
   };
 
   return (
