@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react'
 
-import Input from '../Basic/Input'
+import Input from '../../../Form/Basic/Input'
 import Switch from 'react-input-switch'
 import { FormEditContext } from '../../../../pages/form/FormEdit'
 import { AiFillDelete } from 'react-icons/ai'

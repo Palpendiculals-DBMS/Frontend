@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    isAuthenticated: true,
-    user: 'Farhan Akhtar',
-    token: 'Tera baap'
+    isAuthenticated: false,
+    user: null,
+    token: null
 };
 
 const setauth_data = (state, action) => {
@@ -30,7 +30,7 @@ const get_localAuth = (state) => {
 }
 
 const remove_authData = (state, action) => {
-    state.isAuthenticated = true;
+    state.isAuthenticated = false;
     state.user = null;
     state.token = null;
 

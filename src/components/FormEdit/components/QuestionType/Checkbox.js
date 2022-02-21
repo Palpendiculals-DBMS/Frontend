@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 
-import Input from "../Basic/Input";
+import Input from "../../../Form/Basic/Input";
 // import Switch from "react-input-switch";
 import { FormEditContext } from "../../../../pages/form/FormEdit";
 import { BsFillPlusSquareFill } from "react-icons/bs";
 
 import QuestionLayout from "../QuestionLayout";
-import CheckboxInput from "../Basic/Checkbox";
+import CheckboxInput from "../../../Form/Basic/Checkbox";
 
 function Checkbox({ question, index }) {
   const { formData, formDataActions } = React.useContext(FormEditContext);

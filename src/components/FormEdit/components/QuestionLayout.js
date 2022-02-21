@@ -43,7 +43,7 @@ function QuestionLayout(props) {
                 </div>
                 {props.children}
 
-                <div className={`form-check flex p-4 bg-white `}>
+                <div className={`form-check flex p-4 bg-white`}>
                     <div className={`flex flex-grow`}>
                         <Switch
                             value={props.QuestionState.isRequired ? 1 : 0}

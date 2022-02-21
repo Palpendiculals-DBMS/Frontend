@@ -1,9 +1,8 @@
 import React from "react";
-import BlankModal from "../../components/Dashboard/BlankModal";
-import Modal from "../../components/Dashboard/Modal";
-import BottomSVG from '../../components/Login/Group 8.svg';
+import BlankModal from "../../../components/Dashboard/BlankModal";
+import Modal from "../../../components/Dashboard/Modal";
+import BottomSVG from '../../../components/Login/Group 8.svg';
 import classes from './DashBoard.module.css';
-
 
 const nameArray = ["Question1", "Form2", "Form3", "Form4"];
 

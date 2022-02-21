@@ -4,10 +4,23 @@ import { BrowserRouter, Route, Redirect, Switch, useHistory } from "react-router
 import route from "./routes";
 import { useSelector, useDispatch } from "react-redux";
 import { getAuthData } from "./redux/auth/authSlice";
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import NoAuth from "./pages/NoAuth";
 // import Form from './pages/form/index';
+
+const Forbidden = () => {
+
+  useEffect(() => {
+    toast.error("You are not authorized to access this page");
+  }, []);
+
+  return (
+    <>
+      <Redirect to={`/login`} />
+    </>
+  )
+}
 
 function App() {
 
@@ -29,12 +42,21 @@ function App() {
 
 
         {route.map((item, index) => {
+          if (item.isAuth && !auth.isAuthenticated) {
+            return (
+              <Route
+                path={item.path}
+              >
+                <Forbidden />
+              </Route>
+            );
+          }
           return (
             <Route
               path={item.path}
-              component={item.isAuth && !auth.isAuthenticated ? null : item.component}
+              component={item.component}
             />
-          )
+          );
         })}
 
 

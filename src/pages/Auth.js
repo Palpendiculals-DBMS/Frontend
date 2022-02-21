@@ -1,15 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import classes from '../components/Login/Login.module.css';
 
 import { Link, useHistory } from 'react-router-dom';
 import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux'
-
 import { toast } from 'react-toastify';
-
 import MainWindow from '../components/Login/MainWindow';
 import { setAuthData } from '../redux/auth/authSlice';
 import { AiOutlineLoading3Quarters } from 'react-icons/ai';
+
 function Login() {
     const [emailInput, setEmailInput] = useState('');
     const [passwordInput, setPasswordInput] = useState('');
@@ -19,6 +18,15 @@ function Login() {
     const history = useHistory();
 
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        if (auth.isAuthenticated) {
+            alert("You are already logged in");
+            history.push('form/dashboard');
+        }
+    }, [auth]);
+
+
 
     const emailInputHandler = function (e) {
         setEmailInput(e.target.value);
@@ -99,6 +107,7 @@ function SignUp() {
     const dispatch = useDispatch();
 
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const auth = useSelector((state) => state.auth);
 
     const [SignUp, setSignUp] = useState({
         name: '',
@@ -113,6 +122,13 @@ function SignUp() {
             [type]: e.target.value
         });
     }
+
+    useEffect(() => {
+        if (auth.isAuthenticated) {
+            alert("You are already logged in");
+            history.push('form/dashboard');
+        }
+    }, [auth]);
 
     const onSubmit = async (e) => {
         e.preventDefault();

@@ -65,7 +65,7 @@ function Navbar() {
             Dashboard
           </button>
 
-          {auth.isAuthenticated ? (
+          {auth.isAuthenticated && auth.user != null ? (
             <User user={auth.user} SignOut={SignOut} />
           ) : null}
         </div>

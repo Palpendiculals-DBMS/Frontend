@@ -1,0 +1,30 @@
+{
+  "title": "Form Title",
+  "description": "Form Description",
+  "data": [
+    {
+      "id": 1,
+      "type": "shorttext",
+      "isRequired": true,
+      "title": "This is First Question"
+    },
+    {
+      "id": 2,
+      "type": "longtext",
+      "isRequired": false,
+      "title": "This is long text"
+    },
+    {
+      "id": 3,
+      "type": "radio",
+      "isRequired": false,
+      "title": "Untitled Question",
+      "options": [
+        {
+          "checked": false,
+          "title": "Untitled Option"
+        }
+      ]
+    }
+  ]
+}

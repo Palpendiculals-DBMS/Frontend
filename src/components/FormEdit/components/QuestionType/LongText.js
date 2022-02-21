@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 
-import Input from "../Basic/Input";
+import Input from "../../../Form/Basic/Input";
 // import Switch from "react-input-switch";
 import { FormEditContext } from "../../../../pages/form/FormEdit";
 // import { AiFillDelete } from "react-icons/ai";
 import QuestionLayout from "../QuestionLayout";
-import Textarea from "../Basic/Textarea";
+import Textarea from "../../../Form/Basic/Textarea";
 
 function LongText({ question, index }) {
   const { formDataActions } = React.useContext(FormEditContext);

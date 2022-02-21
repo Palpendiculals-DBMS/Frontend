@@ -3,8 +3,8 @@ import { FormEditContext } from "../../pages/form/FormEdit";
 
 import DisplayEditableQuestions from "./components/DisplayEditableQuestions";
 
-import Input from "./components/Basic/Input";
-import Textarea from "./components/Basic/Textarea";
+import Input from "../Form/Basic/Input";
+import Textarea from "../Form/Basic/Textarea";
 import { BsFillPlusSquareFill } from "react-icons/bs";
 
 function FormEditArea() {
