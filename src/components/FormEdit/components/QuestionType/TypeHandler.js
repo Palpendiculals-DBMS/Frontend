@@ -3,6 +3,7 @@ import ShortText from "./ShortText";
 import LongText from "./LongText";
 import Radio from "./Radio";
 import Checkbox from "./Checkbox";
+import Date from "./Date";
 
 const Print = ({ question, index }) => {
   switch (question.type) {
@@ -28,6 +29,12 @@ const Print = ({ question, index }) => {
       return (
         <React.Fragment>
           <Checkbox question={question} index={index} />
+        </React.Fragment>
+      );
+    case "date":
+      return (
+        <React.Fragment>
+          <Date question={question} index={index} />
         </React.Fragment>
       );
     default:

@@ -3,6 +3,7 @@ import { GrTextAlignFull } from "react-icons/gr";
 import { IoIosRadioButtonOn } from "react-icons/io";
 import { MdShortText } from "react-icons/md";
 import { ImCheckboxChecked } from "react-icons/im";
+import { BsFillCalendar2DateFill } from "react-icons/bs";
 
 import { FormEditContext } from "../../pages/form/FormEdit";
 
@@ -30,6 +31,11 @@ function InputList(props) {
       title: "Multi Choice",
       type: "checkbox",
     },
+    {
+      icon: BsFillCalendar2DateFill,
+      title: "Date",
+      type: "date",
+    },
   ];
 
   const handleClick = (e, type) => {
@@ -51,7 +57,7 @@ function InputList(props) {
           {QuestionsList.map((item, index) => {
             return (
               <button
-                className="flex justify-between items-center py-2 px-5 my-3 bg-white rounded-lg text-red-500 shadow-md shadow-red-200/5 hover:shadow-lg hover:shadow-red-300/20 active:bg-slate-100 transition-all"
+                className="flex flex-start items-center py-2 px-5 my-3 bg-white rounded-lg text-red-500 shadow-md shadow-red-200/5 hover:shadow-lg hover:shadow-red-300/20 active:bg-slate-100 transition-all"
                 onClick={(e) => handleClick(e, item.type)}
               >
                 <item.icon />

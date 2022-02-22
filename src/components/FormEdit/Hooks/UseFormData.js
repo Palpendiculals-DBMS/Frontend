@@ -120,6 +120,13 @@ export const UseFormData = () => {
             },
           ],
         };
+      case "date":
+        return {
+          id: formData.length + 1,
+          type: type,
+          isRequired: false,
+          title: "Untitled Question",
+        };
     }
   };
 
