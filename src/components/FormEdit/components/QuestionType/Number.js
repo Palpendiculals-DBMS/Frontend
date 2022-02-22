@@ -61,9 +61,28 @@ function Number({ question, index, isDragging }) {
 
         <Input
           type="number"
-          placeholder="0"
+          placeholder="Response"
           className={`my-3 mx-4 p-3 border-2 rounded-md bg-gray-400/10`}
         />
+
+        <div className="flex justify-between flex-row">
+          <Input
+            type="number"
+            placeholder="Min"
+            max={QuestionState.max ? QuestionState.max : null}
+            value={QuestionState.min ? QuestionState.min : null}
+            onChange={(e) => handleChange(e, "min")}
+            className={`my-3 mx-4 p-3 border-2 w-2/5 rounded-md bg-gray-400/10`}
+          />
+          <Input
+            type="number"
+            placeholder="Max"
+            min={QuestionState.min ? QuestionState.min : null}
+            className={`my-3 mx-4 p-3 border-2 w-2/5 rounded-md bg-gray-400/10`}
+            value={QuestionState.max ? QuestionState.max : null}
+            onChange={(e) => handleChange(e, "max")}
+          />
+        </div>
       </QuestionLayout>
     </React.Fragment>
   );
