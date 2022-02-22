@@ -4,6 +4,7 @@ import LongText from "./LongText";
 import Radio from "./Radio";
 import Checkbox from "./Checkbox";
 import Date from "./Date";
+import Number from "./Number";
 
 const Print = ({ question, index }) => {
   switch (question.type) {
@@ -17,6 +18,12 @@ const Print = ({ question, index }) => {
       return (
         <React.Fragment>
           <LongText question={question} index={index} />
+        </React.Fragment>
+      );
+    case "number":
+      return (
+        <React.Fragment>
+          <Number question={question} index={index} />
         </React.Fragment>
       );
     case "radio":

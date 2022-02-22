@@ -2,7 +2,7 @@ import React from "react";
 import { GrTextAlignFull } from "react-icons/gr";
 import { IoIosRadioButtonOn } from "react-icons/io";
 import { MdShortText } from "react-icons/md";
-import { ImCheckboxChecked } from "react-icons/im";
+import { ImCheckboxChecked, ImSortNumbericDesc } from "react-icons/im";
 import { BsFillCalendar2DateFill } from "react-icons/bs";
 
 import { FormEditContext } from "../../pages/form/FormEdit";
@@ -20,6 +20,11 @@ function InputList(props) {
       icon: GrTextAlignFull,
       title: "Long Text",
       type: "longtext",
+    },
+    {
+      icon: ImSortNumbericDesc,
+      title: "Number",
+      type: "number",
     },
     {
       icon: IoIosRadioButtonOn,

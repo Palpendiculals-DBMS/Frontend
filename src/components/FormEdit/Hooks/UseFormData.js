@@ -94,6 +94,13 @@ export const UseFormData = () => {
           isRequired: false,
           title: "Untitled Question",
         };
+      case "number":
+        return {
+          id: formData.length + 1,
+          type: type,
+          isRequired: false,
+          title: "Untitled Question",
+        };
       case "radio":
         return {
           id: formData.length + 1,

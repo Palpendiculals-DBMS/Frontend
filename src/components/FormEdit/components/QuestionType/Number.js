@@ -4,7 +4,7 @@ import Input from "../../../Form/Basic/Input";
 import { FormEditContext } from "../../../../pages/form/FormEdit";
 import QuestionLayout from "../QuestionLayout";
 
-function Date({ question, index, isDragging }) {
+function Number({ question, index, isDragging }) {
   const { formData, formDataActions } = React.useContext(FormEditContext);
   const [QuestionState, setQuestionState] = useState(question);
 
@@ -60,7 +60,8 @@ function Date({ question, index, isDragging }) {
         />
 
         <Input
-          type="date"
+          type="number"
+          placeholder="0"
           className={`my-3 mx-4 p-3 border-2 rounded-md bg-gray-400/10`}
         />
       </QuestionLayout>
@@ -68,4 +69,4 @@ function Date({ question, index, isDragging }) {
   );
 }
 
-export default Date;
+export default Number;
