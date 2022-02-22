@@ -32,7 +32,7 @@ function Navbar() {
   const auth = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const history = useHistory();
-  console.log(auth);
+  // console.log(auth);
 
   const SignOut = () => {
     dispatch(removeAuthData());

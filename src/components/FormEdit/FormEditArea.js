@@ -10,6 +10,10 @@ import { BsFillPlusSquareFill } from "react-icons/bs";
 function FormEditArea() {
   const { formData, formDataActions } = React.useContext(FormEditContext);
 
+  const submitHandler = () => {
+    console.log("not submitting", formData);
+  };
+
   return (
     <div className={`overflow-y-scroll mt-5 shadow-xl`}>
       <div className={`bg-white p-10`}>
@@ -30,8 +34,10 @@ function FormEditArea() {
         <hr className={`mt-2 border-red-500 border-t-2`} />
 
         <DisplayEditableQuestions />
-        <button className={``}>
-          <BsFillPlusSquareFill className={`text-red-500 text-3xl m-2 shadow-lg shadow-red-500/40 hover:text-red-800 hover:shadow-red-900/50 active:text-red-900`} />
+        <button onClick={submitHandler} className={``}>
+          <BsFillPlusSquareFill
+            className={`text-red-500 text-3xl m-2 shadow-lg shadow-red-500/40 hover:text-red-800 hover:shadow-red-900/50 active:text-red-900`}
+          />
         </button>
       </div>
     </div>

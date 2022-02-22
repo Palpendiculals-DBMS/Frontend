@@ -64,6 +64,7 @@ function InputList(props) {
               <button
                 className="flex flex-start items-center py-2 px-5 my-3 bg-white rounded-lg text-red-500 shadow-md shadow-red-200/5 hover:shadow-lg hover:shadow-red-300/20 active:bg-slate-100 transition-all"
                 onClick={(e) => handleClick(e, item.type)}
+                key={index}
               >
                 <item.icon />
                 <span className={`px-2 font-semibold`}>{item.title}</span>
