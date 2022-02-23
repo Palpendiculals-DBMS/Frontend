@@ -8,7 +8,7 @@ function Radio(props) {
         <div key={props.key} className={` flex justify-start items-start ${props.divClassName}`}>
             <input
                 {...props}
-                className={`m-0 mx-2 self-center ${props.className}`}
+                className={`m-0 mx-2 self-center text-red-500 focus:ring-red-500/0 ${props.className}`}
                 type="radio"
             />
             <Input

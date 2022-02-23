@@ -16,20 +16,31 @@ const info_init = {
 };
 
 export const UseFormData = () => {
-  const [formData, setFormData] = useState(initialState);
-  const [info, setInfo] = useState(info_init);
+
+  const [formData, setFormData] = useState(
+    initialState
+  );
+
+  const [info, setInfo] = useState(
+    info_init
+  );
 
   const setFormTitle = (title) => {
-    setInfo({
-      ...info,
-      title: title,
+    console.log("TITLE: ", title);
+    setInfo((prevState) => {
+      const newState = { ...prevState };
+      newState.title = title;
+
+      return { ...newState };
     });
   };
 
   const setFormDescription = (description) => {
-    setInfo({
-      ...info,
-      description: description,
+    setInfo((prevState) => {
+      const newState = { ...prevState };
+      newState.description = description;
+
+      return { ...newState };
     });
   };
 
@@ -99,6 +110,8 @@ export const UseFormData = () => {
           id: formData.length + 1,
           type: type,
           isRequired: false,
+          min: 0,
+          max: 100,
           title: "Untitled Question",
         };
       case "radio":
@@ -150,6 +163,17 @@ export const UseFormData = () => {
     setFormData([...result]);
   };
 
+  const setFormid = (id) => {
+    setInfo({
+      ...info,
+      id: id,
+    });
+  }
+
+  const setformdata = (data) => {
+    setFormData(data);
+  }
+
   return [
     formData,
     {
@@ -162,6 +186,8 @@ export const UseFormData = () => {
       addNewQuestion,
       reorder,
       getElementbyId,
+      setformdata,
+      setFormid
     },
   ];
 };

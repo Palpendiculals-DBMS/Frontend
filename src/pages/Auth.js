@@ -21,12 +21,9 @@ function Login() {
 
     useEffect(() => {
         if (auth.isAuthenticated) {
-            alert("You are already logged in");
             history.push('form/dashboard');
         }
     }, [auth]);
-
-
 
     const emailInputHandler = function (e) {
         setEmailInput(e.target.value);
@@ -50,9 +47,6 @@ function Login() {
             dispatch(setAuthData(res.data));
 
             toast.success("Successfully Logged In");
-
-            history.push('/form/dashboard');
-
         } catch (err) {
             console.log(err);
             toast.error("Invalid Email or Password");
@@ -125,8 +119,7 @@ function SignUp() {
 
     useEffect(() => {
         if (auth.isAuthenticated) {
-            alert("You are already logged in");
-            history.push('form/dashboard');
+            history.push('/form/dashboard');
         }
     }, [auth]);
 

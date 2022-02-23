@@ -17,10 +17,6 @@ function Radio({ question, index }) {
     formDataActions.UpdateFormData(QuestionState, QuestionState.id);
   }, [QuestionState]);
 
-  // useEffect(() => {
-  //   setQuestionState(question);
-  // }, [formData]);
-
   const handleChange = (e, type) => {
     setQuestionState({
       ...QuestionState,
@@ -99,7 +95,7 @@ function Radio({ question, index }) {
                 <>
                   <RadioInput
                     key={index}
-                    className={`form-check-input appearance-none rounded-full h-3 w-3 border border-gray-300 bg-white checked:bg-red-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer`}
+                    className={``}
                     divClassName={`px-3 py-2`}
                     name={`q_${question.id}`}
                     value={option.title}

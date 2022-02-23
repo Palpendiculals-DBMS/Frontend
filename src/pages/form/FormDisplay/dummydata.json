@@ -22,7 +22,15 @@
       "options": [
         {
           "checked": false,
-          "title": "Untitled Option"
+          "title": "Untitled Option #1"
+        },
+        {
+          "checked": false,
+          "title": "Untitled Option #1"
+        },
+        {
+          "checked": false,
+          "title": "None"
         }
       ]
     }

@@ -2,12 +2,12 @@ import React, { Fragment } from 'react';
 import classes from './Modal.module.css';
 import vectorSvg from './BlankPageIcon.svg';
 
-const BlankModal = () => {
+const BlankModal = (props) => {
     return (
         <Fragment>
-            <div className={ classes.BlankModal }>
-                <div className={ classes.plusDiv }>
-                    <img src={ vectorSvg } alt='Vector Plus' />
+            <div {...props} className={`${classes.BlankModal} ${props.className}`} >
+                <div className={classes.plusDiv}>
+                    <img src={vectorSvg} alt='Vector Plus' />
                 </div>
             </div>
         </Fragment>

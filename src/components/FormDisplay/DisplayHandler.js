@@ -1,6 +1,8 @@
 import React from 'react'
 import DShorttext from './components/DShorttext'
+import DRadio from './components/DRadio';
 import LongText from './components/DLongText'
+
 function DisplayHandler({ question, index }) {
 
     switch (question.type) {
@@ -16,6 +18,13 @@ function DisplayHandler({ question, index }) {
                     <LongText data={question} />
                 </React.Fragment>
             )
+        case 'radio':
+            return (
+                <React.Fragment>
+                    <DRadio data={question} />
+                </React.Fragment>
+            )
+            break;
         default:
             break;
     }

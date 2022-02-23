@@ -11,7 +11,7 @@ function Checkbox(props) {
     >
       <input
         {...props}
-        className={`m-0 mx-2 self-center ${props.className}`}
+        className={`m-0 mx-2 self-center text-red-500 rounded-sm outline-none focus:ring-red-500/0 ${props.className}`}
         type="checkbox"
       />
       <Input

@@ -18,7 +18,7 @@ function FormComponent(props) {
 
     return (
         <>
-            <div className={`bg-white w-3/4 p-10 font-body shadow-2xl border-2 border-red-400 border-dotted`}>
+            <div className={`mt-10 bg-white w-3/4 p-10 font-body shadow-2xl border-2 border-red-400 border-dotted`}>
                 <FormContext.Provider value={{ formdata, setFormdata, register, errors }}>
                     <h1
                         className={`text-2xl p-2 text-black/70`}
