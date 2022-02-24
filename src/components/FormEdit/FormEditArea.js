@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FormEditContext } from "../../pages/form/FormEdit";
 
 import DisplayEditableQuestions from "./components/DisplayEditableQuestions";
@@ -9,7 +9,7 @@ import { useParams } from 'react-router-dom';
 import axios from "axios";
 import { useSelector } from "react-redux";
 
-function FormEditArea() {
+function FormEditArea({ formSave, setFormSave }) {
   let { id } = useParams();
   const { formData, formDataActions } = React.useContext(FormEditContext);
   const auth = useSelector((state) => state.auth);
@@ -22,7 +22,6 @@ function FormEditArea() {
           Authorization: `Bearer ${auth.token}`,
         }
       })
-
 
       const title = response.data.data[0].title;
       const description = response.data.data[0].description;
@@ -47,7 +46,7 @@ function FormEditArea() {
     console.log("FORM DATA", formData, formDataActions.getFormInfo());
   }, [formData]);
 
-  const controller = new AbortController();
+  let cancelToken = useRef();
 
   // eslint - disable - next - line react - hooks / exhaustive - deps
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -59,22 +58,51 @@ function FormEditArea() {
     const f_data = formData;
     const f_cred = formDataActions.getFormInfo();
 
-    if (f_data.length == 0 || f_cred.id == 1) {
+    if (f_data.length === 0 || f_cred.id === 1) {
       return;
     }
 
-    const response = await axios
-      .post(`${process.env.REACT_APP_BASE_URL}/formdata/update`,
-        {
-          form: f_data,
-          title: f_cred.title,
-          description: f_cred.description,
-          id: id
+    setFormSave({
+      ...formSave,
+      loading: true
+    });
+
+    if (typeof cancelToken.current != typeof undefined) {
+      cancelToken.current.cancel("Operation Canceled");
+    }
+
+    try {
+
+
+      cancelToken.current = axios.CancelToken.source()
+
+      const response = await axios
+        .post(`${process.env.REACT_APP_BASE_URL}/formdata/update`,
+          {
+            form: f_data,
+            title: f_cred.title,
+            description: f_cred.description,
+            id: id
+          }, {
+          headers: {
+            Authorization: `Bearer ${auth.token}`,
+          },
+          cancelToken: cancelToken.current.token
         });
 
-    console.log("FORM UPDATE", response);
-
-  }, [formData, formDataActions, id]);
+      setFormSave({
+        loading: false,
+        err: false
+      });
+      console.log("FORM UPDATE", response);
+    } catch (err) {
+      console.log(err);
+      setFormSave({
+        loading: false,
+        err: true
+      });
+    }
+  }, [formData, formDataActions.getFormInfo()]);
 
   const submitHandler = () => {
     console.log("not submitting", formData);
@@ -107,7 +135,7 @@ function FormEditArea() {
 
         <hr className={`mt-2 border-red-500 border-t-2`} />
 
-        <DisplayEditableQuestions />
+        <DisplayEditableQuestions formSave={formSave} />
         <button onClick={submitHandler} className={``}>
           <BsFillPlusSquareFill
             className={`text-red-500 text-3xl m-2 shadow-lg shadow-red-500/40 hover:text-red-800 hover:shadow-red-900/50 active:text-red-900`}

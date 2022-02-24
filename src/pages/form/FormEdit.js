@@ -1,4 +1,4 @@
-import React, { createContext, useReducer } from "react";
+import React, { createContext, useReducer, useState } from "react";
 import { useHistory } from "react-router-dom";
 
 import InputList from "../../components/FormEdit/InputList";
@@ -11,11 +11,16 @@ const FormEdit = () => {
   const [formData, formDataActions] = UseFormData();
   const history = useHistory();
 
+  const [formSave, setFormSave] = useState({
+    loading: false,
+    err: false
+  });
+
   return (
     <>
       <FormEditContext.Provider value={{ formData, formDataActions }}>
         <div className={`min-h-screen w-full bg-slate-600/20 flex flex-row`}>
-          <InputList className={`w-2/12 mt-1`} />
+          <InputList className={`w-2/12 mt-1`} formSave={formSave} />
           <div className={`w-9/12`}>
             {/* Button container */}
             <div className={`flex flex-row mt-5`}>
@@ -33,7 +38,7 @@ const FormEdit = () => {
             </div>
 
             {/* Form */}
-            <FormEditArea />
+            <FormEditArea formSave={formSave} setFormSave={setFormSave} />
           </div>
         </div>
       </FormEditContext.Provider>
