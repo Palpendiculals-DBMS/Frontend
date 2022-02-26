@@ -3,7 +3,7 @@ import React from 'react'
 function Modal(props) {
     return (
         <div
-            className={`absolute h-full w-full top-0 left-0 flex flex-col justify-center items-center transition-all `}
+            className={`fixed h-full w-full top-0 left-0 flex flex-col justify-center items-center transition-all `}
             style={{
                 pointerEvents: props.isOpen ? 'all' : 'none',
                 opacity: props.isOpen ? 1 : 0,

@@ -16,9 +16,6 @@ import NoAuth from "./pages/NoAuth";
 // import Form from './pages/form/index';
 
 const Forbidden = () => {
-  useEffect(() => {
-    toast.error("You are not authorized to access this page");
-  }, []);
 
   return (
     <>

@@ -93,7 +93,7 @@ function InputList(props) {
                       <VscLoading className={`animate-spin items-center`} />
                     </span>
                     <span className={`items-center`}>
-                      Loading
+                      Error Occured
                     </span>
                   </div>
                   :

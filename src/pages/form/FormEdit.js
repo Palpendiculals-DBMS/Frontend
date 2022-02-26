@@ -23,7 +23,7 @@ const FormEdit = () => {
           <InputList className={`w-2/12 mt-1`} formSave={formSave} />
           <div className={`w-9/12`}>
             {/* Button container */}
-            <div className={`flex flex-row mt-5`}>
+            <div className={`flex flex-row mt-5 font-body`}>
               <div
                 className={`text-red-500 mr-5 font-semibold hover:bg-red-200/50 py-1 px-2 rounded cursor-pointer`}
               >
