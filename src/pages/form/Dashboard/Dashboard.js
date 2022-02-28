@@ -68,7 +68,7 @@ const Dashboard = () => {
 
   const onPreview = (e, id) => {
     e.preventDefault();
-    history.push(`/form/f/${id}`);
+    history.push(`/f/${id}`);
   }
 
 

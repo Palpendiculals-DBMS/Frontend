@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   BrowserRouter,
   Route,
@@ -27,15 +27,28 @@ const Forbidden = () => {
 function App() {
   const history = useHistory();
   const auth = useSelector((state) => state.auth);
+  const [Load, setLoad] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getAuthData());
+    setLoad(true);
   }, []);
+
+  useEffect(() => {
+    console.log(Load, auth);
+  }, [Load])
 
   useEffect(() => {
     console.log(auth);
   }, [auth]);
+
+  if (!Load) {
+    return (
+      <>
+      </>
+    )
+  }
 
   return (
     <BrowserRouter>

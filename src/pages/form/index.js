@@ -12,18 +12,20 @@ function Index() {
     const auth = useSelector((state) => state.auth);
     const history = useHistory();
     useEffect(() => {
-        if (!auth.isAuthenticated) {
-            history.push("/");
-        }
+        // if (!auth.isAuthenticated) {
+        //     history.push("/");
+        // }
     }, [auth]);
 
     return (
         <>
             <Layout>
                 <Switch>
-                    <Route path="/form/dashboard" component={Dashboard} />
 
                     <Route path="/form/edit/:id" component={Form} />
+
+                    <Route path="/form/dashboard" component={Dashboard} />
+
 
                     <Route path="/form/anal/:id" component={FormAnalytics} />
                 </Switch>
