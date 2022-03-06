@@ -21,13 +21,13 @@ function DCheckbox(props) {
                                 className={`m-0 mx-2 self-center text-red-500 rounded-sm outline-none focus:ring-red-500/0 ${props.className}`}
                                 type="checkbox"
                                 name={`Q_${props.data.id}`}
-                                value={option.title}
+                                value={option}
                                 {...register(`Q_${props.data.id}`, { required: props.data.isRequired })}
                             />
                             <span
                                 className={`opacity-50`}
                             >
-                                {option.title}
+                                {option}
                             </span>
                         </div>
                     )

@@ -53,7 +53,7 @@ function DRadio(props) {
                                     register={register}
                                     errors={errors}
                                     id={props.data.id}
-                                    title={option.title}
+                                    title={option}
                                     isRequired={props.data.isRequired}
                                 />
                             )
