@@ -14,6 +14,7 @@ function FormComponent(props) {
 
     const onSubmit = data => {
         console.log(data);
+        alert(JSON.stringify(data));
     };
 
     return (
@@ -26,7 +27,7 @@ function FormComponent(props) {
                         {formdata.title}
                     </h1>
                     <h4
-                        className={`p-1 opacity-50 text-black/60`}
+                        className={`p-1 py-6 px-3 text-sm w-3/4 opacity-50 text-black/60`}
                     >
                         {formdata.description}
                     </h4>

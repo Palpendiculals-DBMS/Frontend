@@ -18,10 +18,11 @@ function DLongText(props) {
                     }
                 </h1>
 
-                <Textarea
+                <textarea
                     placeholder="Enter Response"
+                    name={`Q_${props.data.id}`}
                     {...register(`Q_${props.data.id}`, { required: props.data.isRequired })}
-                    className={`w-full p-3 border-2 rounded-md bg-gray-100 active:border-gray-200 shadow-inner my-3 h-28 resize-none`}
+                    className={`w-full p-3 border-2 rounded-md bg-gray-100 active:border-gray-200 shadow-inner my-3 h-28 resize-none outline-none border-b font-body border-gray-200 focus:border-black/30 focus:ring-0`}
                 />
                 {
                     props.data.isRequired && errors[`Q_${props.data.id}`] && <p className={`text-red-500 text-xs italic`}>This field is required</p>

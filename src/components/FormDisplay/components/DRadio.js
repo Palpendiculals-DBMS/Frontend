@@ -14,6 +14,8 @@ const RadioComponent = (props) => {
                     {...props.register(`Q_${props.id}`, { required: props.isRequired })}
                     className={`m-0 mx-2 self-center text-red-500 focus:ring-red-500/0 ${props.className}`}
                     type="radio"
+                    name={`Q_${props.id}`}
+                    value={props.title}
                     onChange={(e) => {
                     }}
                 />

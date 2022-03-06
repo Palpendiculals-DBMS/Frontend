@@ -13,10 +13,6 @@ function Date({ question, index, isDragging }) {
       formDataActions.UpdateFormData(QuestionState, QuestionState.id);
   }, [QuestionState]);
 
-  // const memoizedValue = useMemo(() => {
-  //     formDataActions.UpdateFormData(QuestionState, QuestionState.id);
-  // }, [QuestionState]);
-
   useEffect(() => {
     setQuestionState(question);
   }, [question]);

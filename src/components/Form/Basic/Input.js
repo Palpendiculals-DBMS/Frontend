@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Input(props) {
+const Input = React.forwardRef((props) => {
     return (
         <input
             {...props}
@@ -8,5 +8,5 @@ function Input(props) {
         />
     )
 }
-
+)
 export default Input

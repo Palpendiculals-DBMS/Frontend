@@ -18,7 +18,7 @@ const ModalShare = (props) => {
 
   useEffect(() => {
     let link = window.location.href;
-    link = link.replace('edit', 'f');
+    link = link.replace('form/edit', 'f');
     setLink(link);
   }, [])
 
