@@ -93,6 +93,8 @@ const Dashboard = () => {
                   description={form.description}
                   ViewForm={ViewForm}
                   onPreview={onPreview}
+                  onDelete={() => { }}
+                  Analytics={() => { }}
                 />
               </>)
             })}
