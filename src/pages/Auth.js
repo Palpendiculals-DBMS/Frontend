@@ -90,9 +90,17 @@ function Login() {
                     </form>
                     <div className={classes["log-in-bottom"]}>
                         <p>Dont have an account
-                            <Link to={"/signup"}>
+                            <button
+                                onClick={() => {
+                                    console.log('clicked');
+                                    history.push({
+                                        pathname: '/signup',
+                                        state: { from: submitPath }
+                                    });
+                                }}
+                            >
                                 <span className={`ml-1 ${classes["Sign-up"]}`}>SignUp</span>
-                            </Link>
+                            </button>
                         </p>
                     </div>
                 </div>
@@ -216,9 +224,16 @@ function SignUp() {
                     </form>
                     <div className={classes["log-in-bottom"]}>
                         <p>Back To
-                            <Link to={"/login"}>
+                            <button
+                                onClick={() => {
+                                    history.push({
+                                        pathname: '/login',
+                                        state: { from: submitPath }
+                                    });
+                                }}
+                            >
                                 <span className={` ${classes["Sign-up"]}  ml-1`}>Login</span>
-                            </Link>
+                            </button>
                         </p>
                     </div>
                 </div>
