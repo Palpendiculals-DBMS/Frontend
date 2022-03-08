@@ -1,18 +1,13 @@
 import { useState } from "react";
+import { nanoid } from 'nanoid'
 
-const initialState = [
-  {
-    id: 1,
-    type: "shorttext",
-    isRequired: false,
-    title: "Untitled Question",
-  },
-];
+
+const initialState = [];
 
 const info_init = {
   id: 1,
-  title: "",
-  description: "",
+  title: "Form Heading",
+  description: "Form Description",
 };
 
 export const UseFormData = () => {
@@ -93,21 +88,21 @@ export const UseFormData = () => {
     switch (type) {
       case "shorttext":
         return {
-          id: formData.length + 1,
+          id: nanoid(),
           type: type,
           isRequired: false,
           title: "Untitled Question",
         };
       case "longtext":
         return {
-          id: formData.length + 1,
+          id: nanoid(),
           type: type,
           isRequired: false,
           title: "Untitled Question",
         };
       case "number":
         return {
-          id: formData.length + 1,
+          id: nanoid(),
           type: type,
           isRequired: false,
           min: 0,
@@ -116,33 +111,27 @@ export const UseFormData = () => {
         };
       case "radio":
         return {
-          id: formData.length + 1,
+          id: nanoid(),
           type: type,
           isRequired: false,
           title: "Untitled Question",
           options: [
-            {
-              checked: false,
-              title: "Untitled Option",
-            },
+            'Untitled Option'
           ],
         };
       case "checkbox":
         return {
-          id: formData.length + 1,
+          id: nanoid(),
           type: type,
           isRequired: false,
           title: "Untitled Question",
           options: [
-            {
-              checked: false,
-              title: "Untitled Option",
-            },
+            "Untitled Option",
           ],
         };
       case "date":
         return {
-          id: formData.length + 1,
+          id: nanoid(),
           type: type,
           isRequired: false,
           title: "Untitled Question",

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import classes from '../components/Login/Login.module.css';
 
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux'
 import { toast } from 'react-toastify';
@@ -13,15 +13,22 @@ function Login() {
     const [emailInput, setEmailInput] = useState('');
     const [passwordInput, setPasswordInput] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitPath, setSubmitPath] = useState('/form/dashboard');
 
     const auth = useSelector((state) => state.auth);
     const history = useHistory();
-
+    const location = useLocation();
     const dispatch = useDispatch();
 
     useEffect(() => {
+        if (location.state !== undefined && location.state.from !== undefined) {
+            setSubmitPath(location.state.from);
+        }
+    }, []);
+
+    useEffect(() => {
         if (auth.isAuthenticated) {
-            history.push('form/dashboard');
+            history.push(submitPath);
         }
     }, [auth]);
 
@@ -66,9 +73,9 @@ function Login() {
                     </div>
                     <form className={classes.mainForm} onSubmit={formSubmitHandler}>
                         <label className={classes.label}>EMAIL</label>
-                        <input type={'email'} className={classes.input} onChange={emailInputHandler} value={emailInput}></input>
+                        <input type={'email'} className={`${classes.input} ring-0 border border-gray-300 rounded-md hover:border-slate-400 focus:border-slate-400 bg-slate-100/70 hover:ring-0 focus:ring-0`} onChange={emailInputHandler} value={emailInput}></input>
                         <label className={classes.label}>PASSWORD</label>
-                        <input type="password" className={classes.input} onChange={passWordInputHandler} value={passwordInput}></input>
+                        <input type="password" className={`${classes.input} ring-0 border border-gray-300 rounded-md hover:border-slate-400 focus:border-slate-400 bg-slate-100/70 hover:ring-0 focus:ring-0`} onChange={passWordInputHandler} value={passwordInput}></input>
                         {
                             isSubmitting ?
                                 <button className={`${classes.LogInButton} h-12`}>
@@ -99,7 +106,9 @@ function SignUp() {
 
     const history = useHistory();
     const dispatch = useDispatch();
+    const location = useLocation();
 
+    const [submitPath, setSubmitPath] = useState('/form/dashboard');
     const [isSubmitting, setIsSubmitting] = useState(false);
     const auth = useSelector((state) => state.auth);
 
@@ -117,9 +126,16 @@ function SignUp() {
         });
     }
 
+
+    useEffect(() => {
+        if (location.state !== undefined && location.state.from !== undefined) {
+            setSubmitPath(location.state.from);
+        }
+    }, [location]);
+
     useEffect(() => {
         if (auth.isAuthenticated) {
-            history.push('/form/dashboard');
+            history.push(submitPath);
         }
     }, [auth]);
 
@@ -177,16 +193,16 @@ function SignUp() {
                     <form className={classes.mainForm} onSubmit={onSubmit}>
 
                         <label className={classes.label}>NAME</label>
-                        <input className={classes.input} onChange={(e) => inputChangeHandler(e, 'name')} value={SignUp.name} />
+                        <input className={`${classes.input} ring-0 border border-gray-300 rounded-md hover:border-slate-400 focus:border-slate-400 bg-slate-100/70 hover:ring-0 focus:ring-0`} onChange={(e) => inputChangeHandler(e, 'name')} value={SignUp.name} />
 
                         <label className={classes.label}>EMAIL</label>
-                        <input className={classes.input} onChange={(e) => inputChangeHandler(e, 'email')} value={SignUp.email} />
+                        <input className={`${classes.input} ring-0 border border-gray-300 rounded-md hover:border-slate-400 focus:border-slate-400 bg-slate-100/70 hover:ring-0 focus:ring-0`} onChange={(e) => inputChangeHandler(e, 'email')} value={SignUp.email} />
 
                         <label className={classes.label}>PASSWORD</label>
-                        <input type="password" className={classes.input} onChange={(e) => inputChangeHandler(e, 'password')} value={SignUp.password} />
+                        <input type="password" className={`${classes.input} ring-0 border border-gray-300 rounded-md hover:border-slate-400 focus:border-slate-400 bg-slate-100/70 hover:ring-0 focus:ring-0`} onChange={(e) => inputChangeHandler(e, 'password')} value={SignUp.password} />
 
                         <label className={classes.label}>CONFIRM PASSWORD</label>
-                        <input type="password" className={classes.input} onChange={(e) => inputChangeHandler(e, 'confirmPassword')} value={SignUp.confirmPassword} />
+                        <input type="password" className={`${classes.input} ring-0 border border-gray-300 rounded-md hover:border-slate-400 focus:border-slate-400 bg-slate-100/70 hover:ring-0 focus:ring-0`} onChange={(e) => inputChangeHandler(e, 'confirmPassword')} value={SignUp.confirmPassword} />
                         {
                             isSubmitting ?
                                 <button className={`${classes.LogInButton} h-12`}>

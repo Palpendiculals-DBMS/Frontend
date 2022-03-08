@@ -25,7 +25,7 @@ const Forbidden = () => {
 };
 
 function App() {
-  const history = useHistory();
+
   const auth = useSelector((state) => state.auth);
   const [Load, setLoad] = useState(false);
   const dispatch = useDispatch();

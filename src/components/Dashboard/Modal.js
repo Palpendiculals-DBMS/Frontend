@@ -52,6 +52,12 @@ const Dropdown = (props) => {
                         className={`flex justify-around w-full items-center p-2 hover:bg-slate-200
                         active:bg-slate-300
                         `}
+                        key={index}
+                        onClick={() => {
+                            console.log('Clicked');
+                            component.onClick();
+                        }}
+                        onBlur={props.onBlur}
                     >
                         <component.icon
                         />
@@ -74,12 +80,18 @@ const Modal = (props) => {
         {
             icon: IoMdTrash,
             text: 'Delete',
-            onClick: props.onDelete()
+            onClick: () => {
+                props.onDelete(props.id);
+                setShow(false);
+            }
         },
         {
             icon: IoMdAnalytics,
             text: 'Analytics',
-            onClick: props.Analytics()
+            onClick: () => {
+                history.push(`/analytics/${props.id}`);
+                setShow(false);
+            }
         }
     ]
 
@@ -112,33 +124,40 @@ const Modal = (props) => {
                 </div>
                 <div
                     className={`pt-3`}
+                    onFocus={() => {
+                        setShow(true);
+                    }}
                 >
                     <button
-                        onFocus={() => {
-                            setShow(true);
-                        }}
-
-                        onBlur={() => {
-                            setShow(false);
-                        }}
                     >
-                        <BsThreeDotsVertical
+                        <button
+                        >
+                            <BsThreeDotsVertical
+                                onClick={() => {
+                                    setShow(!show);
+                                }}
+
+                            />
 
 
-                        />
-                        <Dropdown
-                            className={`
+                            <Dropdown
+                                className={`
                             absolute bg-gray-100 text-red-500 flex flex-col 
                             shadow-3xl 
                             rounded-lg
                             transition-all
                             w-36
                             overflow-hidden
-                            ${show ? 'h-auto opacity-100 py-3' : 'pointer-events-none opacity-0'}
+                            ${show ? 'h-auto opacity-100 py-3 pointer-events-auto cursor-pointer' : 'pointer-events-none opacity-0'}
                             `}
-                            components={Dropdowncomponents}
-                            showState={show}
-                        />
+                                components={Dropdowncomponents}
+                                showState={show}
+                                id={props.id}
+                                onBlur={() => {
+                                    setShow(false);
+                                }}
+                            />
+                        </button>
                     </button>
                 </div>
             </div>

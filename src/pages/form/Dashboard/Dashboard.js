@@ -71,6 +71,23 @@ const Dashboard = () => {
     history.push(`/f/${id}`);
   }
 
+  const onDelete = async (id) => {
+    try {
+      const response = await axios.delete(`${process.env.REACT_APP_BASE_URL}/formdata/delete/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${auth.token}`,
+          }
+        }
+      );
+
+      console.log(response);
+
+      setFormData(FormData.filter((form) => form.id !== id));
+    } catch (err) {
+      throw err;
+    }
+  }
 
   return (
     <div>
@@ -93,7 +110,7 @@ const Dashboard = () => {
                   description={form.description}
                   ViewForm={ViewForm}
                   onPreview={onPreview}
-                  onDelete={() => { }}
+                  onDelete={onDelete}
                   Analytics={() => { }}
                 />
               </>)

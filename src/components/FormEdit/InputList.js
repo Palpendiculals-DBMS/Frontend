@@ -87,25 +87,14 @@ function InputList(props) {
                 </div>
                 :
 
-                props.formSave.err ?
-                  <div className={`px-4 py-2  text-red-600 inline-flex bg-white rounded-lg`}>
-                    <span className={`mx-1 items-center flex`}>
-                      <VscLoading className={`animate-spin items-center`} />
-                    </span>
-                    <span className={`items-center`}>
-                      Error Occured
-                    </span>
-                  </div>
-                  :
-
-                  <div className={`px-4 py-2  text-green-600 inline-flex bg-white rounded-lg`}>
-                    <span className={`mx-1 items-center flex`}>
-                      <BsCheck2Circle className={`items-center`} />
-                    </span>
-                    <span className={`items-center`}>
-                      Saved
-                    </span>
-                  </div>
+                <div className={`px-4 py-2  text-green-600 inline-flex bg-white rounded-lg`}>
+                  <span className={`mx-1 items-center flex`}>
+                    <BsCheck2Circle className={`items-center`} />
+                  </span>
+                  <span className={`items-center`}>
+                    Saved
+                  </span>
+                </div>
             }
           </div>
         </div>

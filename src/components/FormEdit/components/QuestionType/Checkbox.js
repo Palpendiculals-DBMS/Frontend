@@ -48,10 +48,7 @@ function Checkbox({ question, index }) {
   const addNewOption = () => {
     setQuestionState((prevState) => {
       const newState = [...prevState.options];
-      newState.push({
-        title: "Untitled Option",
-        checked: false,
-      });
+      newState.push("Untitled Option");
       return {
         ...prevState,
         options: newState,
@@ -99,8 +96,8 @@ function Checkbox({ question, index }) {
                   key={index}
                   divClassName={`px-3 py-2`}
                   name={`q_${question.id}`}
-                  value={option.title}
-                  label={option.title}
+                  value={option}
+                  label={option}
                   onChangeLabel={(e) => handleChangeLabel(e, index)}
                   DeleteButton={() => {
                     deleteOption(index);

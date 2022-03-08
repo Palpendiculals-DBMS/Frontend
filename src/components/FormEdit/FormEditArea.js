@@ -103,6 +103,8 @@ function FormEditArea({ formSave, setFormSave }) {
 
       if (parsedjson !== null) {
         formDataActions.setformdata(parsedjson);
+      } else {
+        formDataActions.setformdata([]);
       }
 
       formDataActions.setFormTitle(title.toString());
@@ -207,11 +209,7 @@ function FormEditArea({ formSave, setFormSave }) {
         <hr className={`mt-2 border-red-500 border-t-2`} />
 
         <DisplayEditableQuestions formSave={formSave} />
-        {/* <button onClick={submitHandler} className={``}>
-          <BsFillPlusSquareFill
-            className={`text-red-500 text-3xl m-2 shadow-lg shadow-red-500/40 hover:text-red-800 hover:shadow-red-900/50 active:text-red-900`}
-          />
-        </button> */}
+
         <div className={`flex gap-3`}
 
         >

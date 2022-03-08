@@ -98,8 +98,8 @@ function Radio({ question, index }) {
                     className={``}
                     divClassName={`px-3 py-2`}
                     name={`q_${question.id}`}
-                    value={option.title}
-                    label={option.title}
+                    value={option}
+                    label={option}
                     onChangeLabel={(e) => handleChangeLabel(e, index)}
                     DeleteButton={() => {
                       deleteOption(index);
