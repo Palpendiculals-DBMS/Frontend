@@ -52,15 +52,17 @@ function Login() {
 
             console.log(res.data);
             dispatch(setAuthData(res.data));
+            setIsSubmitting(false);
 
             toast.success("Successfully Logged In");
         } catch (err) {
             console.log(err);
             toast.error("Invalid Email or Password");
+            setIsSubmitting(false);
+
             throw err;
         }
 
-        setIsSubmitting(false);
     }
 
     return (
@@ -178,13 +180,14 @@ function SignUp() {
 
             dispatch(setAuthData(res.data));
             history.push('form/dashboard');
-
+            setIsSubmitting(false);
         } catch (err) {
             toast.error("Invalid Email or Password");
             console.log(err);
+            setIsSubmitting(false);
         }
 
-        setIsSubmitting(false);
+
 
     }
 

@@ -5,6 +5,7 @@ import { useParams } from "react-router";
 import { useSelector } from "react-redux";
 import { useHistory, useLocation } from "react-router";
 import YangLogo from '../../../Assets/YangLOGO.svg'
+import Loading from "../../../components/Loading";
 
 const FormDisplay = () => {
   const location = useLocation();
@@ -93,7 +94,7 @@ const FormDisplay = () => {
     // fetchData();
     return (
       <React.Fragment>
-        <div>Loading</div>
+        <Loading />
       </React.Fragment>
     )
   }

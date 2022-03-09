@@ -6,12 +6,14 @@ import BlankModal from "../../../components/Dashboard/BlankModal";
 import Modal from "../../../components/Dashboard/Modal";
 import BottomSVG from '../../../components/Login/Group 8.svg';
 import classes from './DashBoard.module.css';
+import Loading from "../../../components/Loading";
 
 
 const nameArray = ["Question1", "Form2", "Form3", "Form4"];
 
 const Dashboard = () => {
   const auth = useSelector((state) => state.auth);
+  const [isLoading, setIsLoading] = useState(true);
   const [FormData, setFormData] = useState([]);
   const history = useHistory();
 
@@ -54,7 +56,7 @@ const Dashboard = () => {
 
       console.log("FORM LIST", response);
       setFormData(response.data.data);
-
+      setIsLoading(false);
     } catch (err) {
       throw err;
     }
@@ -82,11 +84,18 @@ const Dashboard = () => {
       );
 
       console.log(response);
-
       setFormData(FormData.filter((form) => form.id !== id));
+
     } catch (err) {
       throw err;
+
     }
+  }
+
+  if (isLoading) {
+    return (
+      <Loading />
+    )
   }
 
   return (

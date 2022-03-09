@@ -11,6 +11,7 @@ import { useSelector } from "react-redux";
 import { AiOutlineShareAlt } from "react-icons/ai";
 import Modal from '../Modal/Modal';
 import { toast } from 'react-toastify'
+import Loading from "../Loading";
 
 const ModalShare = (props) => {
 
@@ -84,6 +85,7 @@ function FormEditArea({ formSave, setFormSave }) {
   const [ShareModal, setShareModal] = useState(false);
   const auth = useSelector((state) => state.auth);
   const history = useHistory();
+  const [isLoading, setIsLoading] = useState(true);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(async () => {
     try {
@@ -109,7 +111,7 @@ function FormEditArea({ formSave, setFormSave }) {
 
       formDataActions.setFormTitle(title.toString());
       formDataActions.setFormDescription(description);
-
+      setIsLoading(false);
     } catch (err) {
       throw err;
     }
@@ -187,6 +189,11 @@ function FormEditArea({ formSave, setFormSave }) {
         <span>hello</span>
       </>
     )
+  }
+
+  if (isLoading) {
+
+    return <Loading />
   }
 
   return (
