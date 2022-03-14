@@ -1,33 +1,33 @@
 .gridContainer {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
 }
 
 .recentHeading {
-	font-size: 18px;
-	font-weight: 600;
+  font-size: 18px;
+  font-weight: 600;
 }
 
 .all-forms {
-	display: flex;
-	flex-direction: column;
-	gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .all-forms-grid {
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr;
-	column-gap: 50px;
-	row-gap: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  column-gap: 50px;
+  row-gap: 30px;
 }
 
 .bottom-svg {
-	opacity: 0.5;
-	position: fixed;
-	bottom: -20%;
-	z-index: -1;
-	width: 100%;
-	height: auto;
+  opacity: 0.5;
+  position: fixed;
+  bottom: -20%;
+  z-index: -1;
+  width: 100%;
+  height: auto;
 }

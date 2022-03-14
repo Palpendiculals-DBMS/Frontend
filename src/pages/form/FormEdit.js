@@ -1,19 +1,19 @@
-import React, { createContext, useReducer, useState } from "react";
+import React, { createContext, useState } from "react";
 import { useHistory } from "react-router-dom";
 
 import InputList from "../../components/FormEdit/InputList";
-import { UseFormData } from "../../components/FormEdit/Hooks/UseFormData";
+import { UseFormData as useFormData } from "../../components/FormEdit/Hooks/UseFormData";
 import FormEditArea from "../../components/FormEdit/FormEditArea";
 
 export const FormEditContext = createContext();
 
 const FormEdit = () => {
-  const [formData, formDataActions] = UseFormData();
+  const [formData, formDataActions] = useFormData();
   const history = useHistory();
 
   const [formSave, setFormSave] = useState({
     loading: false,
-    err: false
+    err: false,
   });
 
   return (

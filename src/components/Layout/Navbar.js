@@ -5,7 +5,13 @@ import { Link, useHistory } from "react-router-dom";
 
 import logo from "../../Assets/YangLOGO.svg";
 import useScrollPosition from "@react-hook/window-scroll";
+import PropTypes from "prop-types";
 
+/**
+ *
+ * @param {*} props
+ * @return {React.Component}}
+ */
 function User(props) {
   return (
     <>
@@ -24,12 +30,22 @@ function User(props) {
   );
 }
 
+User.propTypes = {
+  user: PropTypes.object,
+  SignOut: PropTypes.func,
+  className: PropTypes.string,
+};
+
+/**
+ *
+ * @return {React.Component}
+ */
 function Navbar() {
   const [scrollPosition, setScrollPosition] = useState({
     y: 0,
     isScrollUp: true,
   });
-  const auth = useSelector((state) => state.auth);
+  const auth = useSelector(state => state.auth);
   const dispatch = useDispatch();
   const history = useHistory();
   // console.log(auth);

@@ -1,9 +1,9 @@
 import React from "react";
-
 import Input from "./Input";
 import { BsXCircle } from "react-icons/bs";
+import PropTypes from "prop-types";
 
-function Checkbox(props) {
+const Checkbox = props => {
   return (
     <div
       key={props.key}
@@ -28,6 +28,16 @@ function Checkbox(props) {
       </button>
     </div>
   );
-}
+};
+
+Checkbox.propTypes = {
+  key: PropTypes.any,
+  label: PropTypes.string,
+  onChangeLabel: PropTypes.func,
+  DeleteButton: PropTypes.func,
+  divClassName: PropTypes.string,
+  inputClassName: PropTypes.string,
+  className: PropTypes.string,
+};
 
 export default Checkbox;

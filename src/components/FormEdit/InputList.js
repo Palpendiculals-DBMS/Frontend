@@ -6,9 +6,15 @@ import { ImCheckboxChecked, ImSortNumbericDesc } from "react-icons/im";
 import { BsFillCalendar2DateFill } from "react-icons/bs";
 
 import { FormEditContext } from "../../pages/form/FormEdit";
-import { VscLoading } from 'react-icons/vsc'
-import { BsCheck2Circle } from 'react-icons/bs'
+import { VscLoading } from "react-icons/vsc";
+import { BsCheck2Circle } from "react-icons/bs";
+import PropTypes from "prop-types";
 
+/**
+ *
+ * @param {*} props
+ * @return {React.Component}
+ */
 function InputList(props) {
   const { formDataActions } = React.useContext(FormEditContext);
 
@@ -65,7 +71,7 @@ function InputList(props) {
             return (
               <button
                 className="flex flex-start items-center py-2 px-5 my-3 bg-white rounded-lg text-red-500 shadow-md shadow-red-200/5 hover:shadow-lg hover:shadow-red-300/20 active:bg-slate-100 transition-all"
-                onClick={(e) => handleClick(e, item.type)}
+                onClick={e => handleClick(e, item.type)}
                 key={index}
               >
                 <item.icon />
@@ -75,32 +81,35 @@ function InputList(props) {
           })}
 
           <div>
-            {
-              props.formSave.loading ?
-                <div className={`px-4 py-2  text-slate-600 inline-flex bg-white rounded-lg`}>
-                  <span className={`mx-1 items-center flex`}>
-                    <VscLoading className={`animate-spin items-center`} />
-                  </span>
-                  <span className={`items-center`}>
-                    Loading
-                  </span>
-                </div>
-                :
-
-                <div className={`px-4 py-2  text-green-600 inline-flex bg-white rounded-lg`}>
-                  <span className={`mx-1 items-center flex`}>
-                    <BsCheck2Circle className={`items-center`} />
-                  </span>
-                  <span className={`items-center`}>
-                    Saved
-                  </span>
-                </div>
-            }
+            {props.formSave.loading ? (
+              <div
+                className={`px-4 py-2  text-slate-600 inline-flex bg-white rounded-lg`}
+              >
+                <span className={`mx-1 items-center flex`}>
+                  <VscLoading className={`animate-spin items-center`} />
+                </span>
+                <span className={`items-center`}>Loading</span>
+              </div>
+            ) : (
+              <div
+                className={`px-4 py-2  text-green-600 inline-flex bg-white rounded-lg`}
+              >
+                <span className={`mx-1 items-center flex`}>
+                  <BsCheck2Circle className={`items-center`} />
+                </span>
+                <span className={`items-center`}>Saved</span>
+              </div>
+            )}
           </div>
         </div>
       </div>
     </React.Fragment>
   );
 }
+
+InputList.propTypes = {
+  className: PropTypes.string,
+  formSave: PropTypes.object,
+};
 
 export default InputList;

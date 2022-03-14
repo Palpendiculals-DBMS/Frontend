@@ -1,28 +1,22 @@
 import { useState } from "react";
-import { nanoid } from 'nanoid'
-
+import { nanoid } from "nanoid";
 
 const initialState = [];
 
-const info_init = {
+const infoInit = {
   id: 1,
   title: "Form Heading",
   description: "Form Description",
 };
 
 export const UseFormData = () => {
+  const [formData, setFormData] = useState(initialState);
 
-  const [formData, setFormData] = useState(
-    initialState
-  );
+  const [info, setInfo] = useState(infoInit);
 
-  const [info, setInfo] = useState(
-    info_init
-  );
-
-  const setFormTitle = (title) => {
+  const setFormTitle = title => {
     console.log("TITLE: ", title);
-    setInfo((prevState) => {
+    setInfo(prevState => {
       const newState = { ...prevState };
       newState.title = title;
 
@@ -30,8 +24,8 @@ export const UseFormData = () => {
     });
   };
 
-  const setFormDescription = (description) => {
-    setInfo((prevState) => {
+  const setFormDescription = description => {
+    setInfo(prevState => {
       const newState = { ...prevState };
       newState.description = description;
 
@@ -43,8 +37,8 @@ export const UseFormData = () => {
     return info;
   };
 
-  const addQuestion = (type) => {
-    setFormData((prevState) => [
+  const addQuestion = type => {
+    setFormData(prevState => [
       ...prevState,
       {
         id: prevState.length + 1,
@@ -56,10 +50,10 @@ export const UseFormData = () => {
     ]);
   };
 
-  const UpdateFormData = (question, id) => {
+  const updateFormData = (question, id) => {
     console.log("Updating", question, id);
-    setFormData((prevState) => {
-      const newState = prevState.map((item) => {
+    setFormData(prevState => {
+      const newState = prevState.map(item => {
         if (item.id === id) {
           return question;
         } else {
@@ -70,20 +64,20 @@ export const UseFormData = () => {
     });
   };
 
-  const getElementbyId = (id) => {
-    const element = formData.find((item) => item.id === id);
+  const getElementbyId = id => {
+    const element = formData.find(item => item.id === id);
     return element;
   };
 
-  const deleteQuestion = (id) => {
-    setFormData((prevState) => {
+  const deleteQuestion = id => {
+    setFormData(prevState => {
       let newState = [...prevState];
-      newState = newState.filter((question) => question.id !== id);
+      newState = newState.filter(question => question.id !== id);
       return newState;
     });
   };
 
-  const getInitialData = (type) => {
+  const getInitialData = type => {
     // eslint-disable-next-line default-case
     switch (type) {
       case "shorttext":
@@ -115,9 +109,7 @@ export const UseFormData = () => {
           type: type,
           isRequired: false,
           title: "Untitled Question",
-          options: [
-            'Untitled Option'
-          ],
+          options: ["Untitled Option"],
         };
       case "checkbox":
         return {
@@ -125,9 +117,7 @@ export const UseFormData = () => {
           type: type,
           isRequired: false,
           title: "Untitled Question",
-          options: [
-            "Untitled Option",
-          ],
+          options: ["Untitled Option"],
         };
       case "date":
         return {
@@ -139,8 +129,8 @@ export const UseFormData = () => {
     }
   };
 
-  const addNewQuestion = (type) => {
-    setFormData((prevState) => {
+  const addNewQuestion = type => {
+    setFormData(prevState => {
       const newState = [...prevState];
       newState.push(getInitialData(type));
 
@@ -152,16 +142,16 @@ export const UseFormData = () => {
     setFormData([...result]);
   };
 
-  const setFormid = (id) => {
+  const setFormid = id => {
     setInfo({
       ...info,
       id: id,
     });
-  }
+  };
 
-  const setformdata = (data) => {
+  const setformdata = data => {
     setFormData(data);
-  }
+  };
 
   return [
     formData,
@@ -170,13 +160,13 @@ export const UseFormData = () => {
       setFormTitle,
       setFormDescription,
       getFormInfo,
-      UpdateFormData,
+      updateFormData,
       deleteQuestion,
       addNewQuestion,
       reorder,
       getElementbyId,
       setformdata,
-      setFormid
+      setFormid,
     },
   ];
 };

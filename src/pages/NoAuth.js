@@ -1,15 +1,19 @@
-import React from 'react'
+import React from "react";
 
+/**
+ *
+ * @return {React.Component}
+ */
 function NoAuth() {
-    return (
-        <>
-            <div className={`flex flex-col py-20 h-screen w-screen font-body items-center`}>
-                <h1 className={`text-xl`}>
-                    Ops! Error Occured. Please login first.
-                </h1>
-            </div>
-        </>
-    )
+  return (
+    <>
+      <div
+        className={`flex flex-col py-20 h-screen w-screen font-body items-center`}
+      >
+        <h1 className={`text-xl`}>Ops! Error Occured. Please login first.</h1>
+      </div>
+    </>
+  );
 }
 
-export default NoAuth
+export default NoAuth;

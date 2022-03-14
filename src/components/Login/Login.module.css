@@ -1,122 +1,122 @@
 .mainBody {
-	width: 100vw;
-	height: 100vh;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .navbar {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding: 50px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 0;
 }
 
 .bottom-svg {
-	width: 100%;
-	height: auto;
-	position: absolute;
-	bottom: 0;
-	z-index: -1;
+  width: 100%;
+  height: auto;
+  position: absolute;
+  bottom: 0;
+  z-index: -1;
 }
 
 .LoginModal {
-	display: flex;
-	justify-content: center;
-	/* width: 70vw; */
+  display: flex;
+  justify-content: center;
+  /* width: 70vw; */
 }
 
 .LoginModal-main {
-	border: 1px solid lightgray;
-	border-radius: 0 0 5px 5px;
-	border-top: none;
-	background-color: white;
-	padding: 50px 30px;
-	padding-top: 20px;
-	color: var(--grey-text);
-	display: flex;
-	flex-direction: column;
-	gap: 30px;
-	width: 25vw;
+  border: 1px solid lightgray;
+  border-radius: 0 0 5px 5px;
+  border-top: none;
+  background-color: white;
+  padding: 50px 30px;
+  padding-top: 20px;
+  color: var(--grey-text);
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 25vw;
 }
 
 .log-In-Top {
-	text-align: center;
-	display: flex;
-	flex-direction: column;
-	gap: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .log-In-Top h2 {
-	color: black;
-	font-size: 20px;
+  color: black;
+  font-size: 20px;
 }
 
 .log-In-Top p {
-	font-size: 12px;
+  font-size: 12px;
 }
 
 .mainForm {
-	display: flex;
-	flex-direction: column;
-	gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .LogInButton {
-	background: #fc0707;
-	padding: 10px 45px;
-	/* button / accent default */
-	border: none;
-	box-shadow: 0px 4px 12px rgba(55, 81, 255, 0.24);
-	border-radius: 8px;
-	margin-top: 10px;
-	color: white;
+  background: #fc0707;
+  padding: 10px 45px;
+  /* button / accent default */
+  border: none;
+  box-shadow: 0px 4px 12px rgba(55, 81, 255, 0.24);
+  border-radius: 8px;
+  margin-top: 10px;
+  color: white;
 }
 
 .LogInButton:hover {
-	cursor: pointer;
-	background: #f00707;
-	/* box-shadow: none; */
+  cursor: pointer;
+  background: #f00707;
+  /* box-shadow: none; */
 }
 
 .LogInButton:active {
-	/* transform: translateY(1px); */
-	transform: scale(0.99);
+  /* transform: translateY(1px); */
+  transform: scale(0.99);
 }
 
 .label {
-	font-size: 11px;
-	font-weight: 700;
+  font-size: 11px;
+  font-weight: 700;
 }
 
 .input {
-	background: #f8f8f8;
-	height: 30px;
-	width: 100%;
-	border: 1px solid #b2b2b3;
-	box-sizing: border-box;
-	border-radius: 8px;
-	padding: 0 10px;
-	font-size: 15px;
-	font-weight: 500;
-	color: rgb(119, 119, 119);
+  background: #f8f8f8;
+  height: 30px;
+  width: 100%;
+  border: 1px solid #b2b2b3;
+  box-sizing: border-box;
+  border-radius: 8px;
+  padding: 0 10px;
+  font-size: 15px;
+  font-weight: 500;
+  color: rgb(119, 119, 119);
 }
 
 .input:focus {
-	/* outline-color: rgba(0, 0, 0, 0); */
-	outline: none;
-	border: 1px solid #363636;
-	/* box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2); */
+  /* outline-color: rgba(0, 0, 0, 0); */
+  outline: none;
+  border: 1px solid #363636;
+  /* box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2); */
 }
 
 .log-in-bottom p {
-	text-align: center;
-	font-size: 12px;
+  text-align: center;
+  font-size: 12px;
 }
 
 .Sign-up {
-	color: var(--primary);
-	font-size: 12px;
-	cursor: pointer;
+  color: var(--primary);
+  font-size: 12px;
+  cursor: pointer;
 }
