@@ -11,6 +11,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.26.0",
     "nanoid": "^3.3.1",
+    "prop-types": "^15.8.1",
     "react": "^17.0.2",
     "react-beautiful-dnd": "^13.1.0",
     "react-custom-checkbox": "^2.0.0",
@@ -30,7 +31,12 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint --fix --ext .js,.jsx .",
+    "format": "prettier --write .",
+    "check-format": "prettier --check .",
+    "check-lint": "eslint . --ext ts --ext tsx --ext js",
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [
@@ -52,6 +58,12 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.2",
+    "eslint": "^8.11.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-react-app": "^7.0.0",
+    "eslint-plugin-react": "^7.29.3",
+    "husky": "^7.0.4",
     "postcss": "^8.4.6",
     "prettier": "^2.5.1",
     "tailwindcss": "^3.0.22"

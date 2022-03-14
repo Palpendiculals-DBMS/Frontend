@@ -1,22 +1,13 @@
 import React, { useEffect, useState } from "react";
-import {
-  BrowserRouter,
-  Route,
-  Redirect,
-  Switch,
-  useHistory,
-} from "react-router-dom";
+import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
 
 import route from "./routes";
 import { useSelector, useDispatch } from "react-redux";
 import { getAuthData } from "./redux/auth/authSlice";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import NoAuth from "./pages/NoAuth";
-// import Form from './pages/form/index';
 
 const Forbidden = () => {
-
   return (
     <>
       <Redirect to={`/login`} />
@@ -24,9 +15,12 @@ const Forbidden = () => {
   );
 };
 
+/**
+ *
+ * @return {React.Component}
+ */
 function App() {
-
-  const auth = useSelector((state) => state.auth);
+  const auth = useSelector(state => state.auth);
   const [Load, setLoad] = useState(false);
   const dispatch = useDispatch();
 
@@ -37,17 +31,14 @@ function App() {
 
   useEffect(() => {
     console.log(Load, auth);
-  }, [Load])
+  }, [Load]);
 
   useEffect(() => {
     console.log(auth);
   }, [auth]);
 
   if (!Load) {
-    return (
-      <>
-      </>
-    )
+    return <></>;
   }
 
   return (

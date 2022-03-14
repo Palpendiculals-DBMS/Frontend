@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import ShortText from "./ShortText";
 import LongText from "./LongText";
 import Radio from "./Radio";
 import Checkbox from "./Checkbox";
 import Date from "./Date";
 import Number from "./Number";
+import PropTypes from "prop-types";
 
 const Print = ({ question, index }) => {
   switch (question.type) {
@@ -51,6 +52,16 @@ const Print = ({ question, index }) => {
   return <></>;
 };
 
+Print.propTypes = {
+  question: PropTypes.object,
+  index: PropTypes.number,
+};
+
+/**
+ *
+ * @param {*} param0
+ * @return {React.Component}
+ */
 function TypeHandler({ question, index }) {
   // const [QuestionState, setQuestionState] = useState(question);
 
@@ -65,5 +76,10 @@ function TypeHandler({ question, index }) {
     </>
   );
 }
+
+TypeHandler.propTypes = {
+  question: PropTypes.object.isRequired,
+  index: PropTypes.number.isRequired,
+};
 
 export default TypeHandler;

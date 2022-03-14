@@ -1,32 +1,33 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import classes from "./MainNavigation.module.css";
-import YangLOGO from '../../Assets/YangLOGO.svg';
+import YangLOGO from "../../Assets/YangLOGO.svg";
 
 const MainNavigation = () => {
   const isLoggedIn = true;
 
   return (
-    <header className={ classes.header }>
+    <header className={classes.header}>
       <Link to="/">
-        <img src={ YangLOGO } alt="Yang LOGO"></img>
+        <img src={YangLOGO} alt="Yang LOGO"></img>
       </Link>
       <nav>
         <ul>
-          { !isLoggedIn && (
+          {!isLoggedIn && (
             <li>
               <Link to="/auth">Login</Link>
             </li>
-          ) }
-          { isLoggedIn && (
+          )}
+          {isLoggedIn && (
             <li>
               <Link to="/home">Profile</Link>
             </li>
-          ) }
-          { isLoggedIn && (
+          )}
+          {isLoggedIn && (
             <li>
               <button>Logout</button>
             </li>
-          ) }
+          )}
         </ul>
       </nav>
     </header>

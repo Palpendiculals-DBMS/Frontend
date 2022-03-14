@@ -1,18 +1,21 @@
 import React, { useState, useEffect } from "react";
-
 import Input from "../../../Form/Basic/Input";
-// import Switch from "react-input-switch";
 import { FormEditContext } from "../../../../pages/form/FormEdit";
-// import { AiFillDelete } from "react-icons/ai";
 import QuestionLayout from "../QuestionLayout";
 import Textarea from "../../../Form/Basic/Textarea";
+import PropType from "prop-types";
 
+/**
+ *
+ * @param {*} param0
+ * @return {React.Component}
+ */
 function LongText({ question, index }) {
   const { formDataActions } = React.useContext(FormEditContext);
   const [QuestionState, setQuestionState] = useState(question);
 
   useEffect(() => {
-    formDataActions.UpdateFormData(QuestionState, QuestionState.id);
+    formDataActions.updateFormData(QuestionState, QuestionState.id);
   }, [QuestionState]);
 
   const handleChange = (e, type) => {
@@ -22,7 +25,7 @@ function LongText({ question, index }) {
     });
   };
 
-  const toggleQuestion = (e) => {
+  const toggleQuestion = e => {
     setQuestionState({
       ...QuestionState,
       isRequired: !QuestionState.isRequired,
@@ -47,7 +50,7 @@ function LongText({ question, index }) {
           className={`w-full p-3 text-xl`}
           placeholder="Enter Question Title"
           value={QuestionState.title}
-          onChange={(e) => handleChange(e, "title")}
+          onChange={e => handleChange(e, "title")}
         />
 
         <Textarea
@@ -60,5 +63,10 @@ function LongText({ question, index }) {
     </React.Fragment>
   );
 }
+
+LongText.propTypes = {
+  question: PropType.object,
+  index: PropType.number,
+};
 
 export default LongText;

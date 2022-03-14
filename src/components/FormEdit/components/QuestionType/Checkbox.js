@@ -4,16 +4,21 @@ import Input from "../../../Form/Basic/Input";
 // import Switch from "react-input-switch";
 import { FormEditContext } from "../../../../pages/form/FormEdit";
 import { BsFillPlusSquareFill } from "react-icons/bs";
-
+import PropTypes from "prop-types";
 import QuestionLayout from "../QuestionLayout";
 import CheckboxInput from "../../../Form/Basic/Checkbox";
 
+/**
+ *
+ * @param {*} param0
+ * @return {React.Component}
+ */
 function Checkbox({ question, index }) {
-  const { formData, formDataActions } = React.useContext(FormEditContext);
+  const { formDataActions } = React.useContext(FormEditContext);
   const [QuestionState, setQuestionState] = useState(question);
 
   useEffect(() => {
-    formDataActions.UpdateFormData(QuestionState, QuestionState.id);
+    formDataActions.updateFormData(QuestionState, QuestionState.id);
   }, [QuestionState]);
 
   // useEffect(() => {
@@ -28,7 +33,7 @@ function Checkbox({ question, index }) {
   };
 
   const handleChangeLabel = (e, index) => {
-    setQuestionState((prevState) => {
+    setQuestionState(prevState => {
       const newState = [...prevState.options];
       newState[index] = e.target.value;
       return {
@@ -38,7 +43,7 @@ function Checkbox({ question, index }) {
     });
   };
 
-  const toggleQuestion = (e) => {
+  const toggleQuestion = e => {
     setQuestionState({
       ...QuestionState,
       isRequired: !QuestionState.isRequired,
@@ -46,7 +51,7 @@ function Checkbox({ question, index }) {
   };
 
   const addNewOption = () => {
-    setQuestionState((prevState) => {
+    setQuestionState(prevState => {
       const newState = [...prevState.options];
       newState.push("Untitled Option");
       return {
@@ -56,8 +61,8 @@ function Checkbox({ question, index }) {
     });
   };
 
-  const deleteOption = (index) => {
-    setQuestionState((prevState) => {
+  const deleteOption = index => {
+    setQuestionState(prevState => {
       const newState = [...prevState.options];
       newState.splice(index, 1);
       return {
@@ -85,7 +90,7 @@ function Checkbox({ question, index }) {
           className={`w-full p-3 text-xl`}
           placeholder="Enter Question Title"
           value={QuestionState.title}
-          onChange={(e) => handleChange(e, "title")}
+          onChange={e => handleChange(e, "title")}
         />
 
         <div className={`flex flex-col py-4`}>
@@ -98,7 +103,7 @@ function Checkbox({ question, index }) {
                   name={`q_${question.id}`}
                   value={option}
                   label={option}
-                  onChangeLabel={(e) => handleChangeLabel(e, index)}
+                  onChangeLabel={e => handleChangeLabel(e, index)}
                   DeleteButton={() => {
                     deleteOption(index);
                   }}
@@ -119,5 +124,10 @@ function Checkbox({ question, index }) {
     </React.Fragment>
   );
 }
+
+Checkbox.propTypes = {
+  question: PropTypes.object,
+  index: PropTypes.number,
+};
 
 export default Checkbox;

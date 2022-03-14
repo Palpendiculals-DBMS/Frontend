@@ -1,16 +1,22 @@
-import React, { useState, useEffect, useMemo } from "react";
-
+import React, { useState, useEffect } from "react";
+import PropType from "prop-types";
 import Input from "../../../Form/Basic/Input";
 import { FormEditContext } from "../../../../pages/form/FormEdit";
 import QuestionLayout from "../QuestionLayout";
 
+/**
+ *
+ * @param {*} param0
+ * @return {React.Component}
+ */
 function Date({ question, index, isDragging }) {
-  const { formData, formDataActions } = React.useContext(FormEditContext);
+  const { formDataActions } = React.useContext(FormEditContext);
   const [QuestionState, setQuestionState] = useState(question);
 
   useEffect(() => {
-    if (QuestionState !== formDataActions.getElementbyId(QuestionState.id))
-      formDataActions.UpdateFormData(QuestionState, QuestionState.id);
+    if (QuestionState !== formDataActions.getElementbyId(QuestionState.id)) {
+      formDataActions.updateFormData(QuestionState, QuestionState.id);
+    }
   }, [QuestionState]);
 
   useEffect(() => {
@@ -24,7 +30,7 @@ function Date({ question, index, isDragging }) {
     });
   };
 
-  const toggleQuestion = (e) => {
+  const toggleQuestion = e => {
     setQuestionState({
       ...QuestionState,
       isRequired: !QuestionState.isRequired,
@@ -52,7 +58,7 @@ function Date({ question, index, isDragging }) {
           value={
             QuestionState.title === null ? "Question" : QuestionState.title
           }
-          onChange={(e) => handleChange(e, "title")}
+          onChange={e => handleChange(e, "title")}
         />
 
         <Input
@@ -63,5 +69,11 @@ function Date({ question, index, isDragging }) {
     </React.Fragment>
   );
 }
+
+Date.propTypes = {
+  question: PropType.object,
+  index: PropType.number,
+  isDragging: PropType.bool,
+};
 
 export default Date;

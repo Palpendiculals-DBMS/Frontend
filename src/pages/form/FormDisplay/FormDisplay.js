@@ -4,7 +4,7 @@ import FormComponent from "../../../components/FormDisplay/FormComponent";
 import { useParams } from "react-router";
 import { useSelector } from "react-redux";
 import { useHistory, useLocation } from "react-router";
-import YangLogo from '../../../Assets/YangLOGO.svg'
+import YangLogo from "../../../Assets/YangLOGO.svg";
 import Loading from "../../../components/Loading";
 
 const FormDisplay = () => {
@@ -12,7 +12,7 @@ const FormDisplay = () => {
   const history = useHistory();
   const [loading, setloading] = useState(true);
   const [formData, setformData] = useState([]);
-  const auth = useSelector((state) => state.auth);
+  const auth = useSelector(state => state.auth);
   const { id } = useParams();
   useEffect(() => {
     console.log("id", id);
@@ -20,14 +20,19 @@ const FormDisplay = () => {
     fetchData();
   }, [id]);
 
+  /**
+   * fetch data from server
+   */
   async function fetchData() {
     try {
-      const { data } = await axios.get(`${process.env.REACT_APP_BASE_URL}/formsubmit/f/${id}`);
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_BASE_URL}/formsubmit/f/${id}`
+      );
       console.log(data);
       setformData({
         title: data.title,
         description: data.description,
-        data: data.form
+        data: data.form,
       });
 
       setloading(false);
@@ -38,27 +43,16 @@ const FormDisplay = () => {
 
   if (auth.isAuthenticated === false) {
     return (
-      <div
-        className="font-body h-screen w-screen flex flex-col items-center"
-      >
-        <img
-          className={`my-20`}
-          src={YangLogo} alt="logo"
-        />
-        <h1
-          className={`text-3xl text-slate-700 mt-10 mb-2`}
-        >
+      <div className="font-body h-screen w-screen flex flex-col items-center">
+        <img className={`my-20`} src={YangLogo} alt="logo" />
+        <h1 className={`text-3xl text-slate-700 mt-10 mb-2`}>
           You are not logged In
         </h1>
-        <p
-          className={`text-base my-6 text-slate-300`}
-        >
+        <p className={`text-base my-6 text-slate-300`}>
           Please login to submit this form
         </p>
 
-        <div
-          className={`flex gap-3`}
-        >
+        <div className={`flex gap-3`}>
           <button
             className={`px-3 py-2 mx-2 my-2 bg-slate-200 hover:bg-slate-300 rounded-lg`}
             onClick={() => {
@@ -66,7 +60,7 @@ const FormDisplay = () => {
                 pathname: "/signup",
                 state: {
                   from: location.pathname,
-                }
+                },
               });
             }}
           >
@@ -79,7 +73,7 @@ const FormDisplay = () => {
                 pathname: "/login",
                 state: {
                   from: location.pathname,
-                }
+                },
               });
             }}
           >
@@ -87,7 +81,7 @@ const FormDisplay = () => {
           </button>
         </div>
       </div>
-    )
+    );
   }
 
   if (loading) {
@@ -96,13 +90,16 @@ const FormDisplay = () => {
       <React.Fragment>
         <Loading />
       </React.Fragment>
-    )
+    );
   }
 
-
-  return <div className={`flex flex-col justify-center items-center min-h-screen min-w-full bg-gray-200`}>
-    <FormComponent formdata={formData} />
-  </div>;
+  return (
+    <div
+      className={`flex flex-col justify-center items-center min-h-screen min-w-full bg-gray-200`}
+    >
+      <FormComponent formdata={formData} />
+    </div>
+  );
 };
 
 export default FormDisplay;
