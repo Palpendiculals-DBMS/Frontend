@@ -52,8 +52,8 @@ export default function Table({ columns, data }) {
                         ${
                           column.isSorted
                             ? column.isSortedDesc
-                              ? "rotate-180"
-                              : ""
+                              ? ""
+                              : "rotate-180"
                             : ""
                         }
 
@@ -81,9 +81,6 @@ export default function Table({ columns, data }) {
                   className="cursor-pointer
                                 hover:bg-gray-100
                       transition-all"
-                  onClick={() => {
-                    console.log(row.original);
-                  }}
                 >
                   {row.cells.map((cell, index) => {
                     return (

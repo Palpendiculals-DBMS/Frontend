@@ -1,6 +1,7 @@
 import FormDisplay from "./pages/form/FormDisplay/FormDisplay";
 import { SignUp, Login } from "./pages/Auth";
 import Form from "./pages/form";
+import Settings from "./pages/profile/Settings";
 
 const route = [
   {
@@ -32,6 +33,12 @@ const route = [
     path: "/f/:id",
     isAuth: false,
     component: FormDisplay,
+  },
+  {
+    name: "Settings",
+    path: "/profile/settings",
+    isAuth: true,
+    component: Settings,
   },
 ];
 

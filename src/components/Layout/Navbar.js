@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { removeAuthData } from "../../redux/auth/authSlice";
+import { useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
-
 import logo from "../../Assets/YangLOGO.svg";
 import useScrollPosition from "@react-hook/window-scroll";
 import PropTypes from "prop-types";
@@ -15,15 +13,10 @@ import PropTypes from "prop-types";
 function User(props) {
   return (
     <>
-      <div className={props.className}>
-        <div className="flex flex-col justify-end items-end  ">
-          <p className="text-sm">{props.user.name}</p>
-          <button
-            className="text-sm border-b-2 hover:border-gray-600 transition-all"
-            onClick={props.SignOut}
-          >
-            Sign out
-          </button>
+      <div className={props.className} onClick={props.onClick}>
+        <div className="flex">
+          <button className="text-sm">{props.user.name}</button>
+          <img src={props.user.avatar} className="w-8 ml-4" />
         </div>
       </div>
     </>
@@ -34,6 +27,7 @@ User.propTypes = {
   user: PropTypes.object,
   SignOut: PropTypes.func,
   className: PropTypes.string,
+  onClick: PropTypes.func,
 };
 
 /**
@@ -46,14 +40,8 @@ function Navbar() {
     isScrollUp: true,
   });
   const auth = useSelector(state => state.auth);
-  const dispatch = useDispatch();
   const history = useHistory();
   // console.log(auth);
-
-  const SignOut = () => {
-    dispatch(removeAuthData());
-    history.push("/");
-  };
 
   const ScrollY = useScrollPosition(60);
   useEffect(() => {
@@ -77,12 +65,17 @@ function Navbar() {
               <img src={logo} alt="" />
             </Link>
           </div>
-          <button className="hover:bg-slate-200 p-3 rounded-lg transition-all mr-10">
+          <button className="hover:bg-slate-200 p-3 rounded-lg transition-all mx-3">
             Dashboard
           </button>
 
           {auth.isAuthenticated && auth.user != null ? (
-            <User user={auth.user} SignOut={SignOut} />
+            <User
+              user={auth.user}
+              onClick={() => {
+                history.push("/profile/settings");
+              }}
+            />
           ) : null}
         </div>
       </header>
