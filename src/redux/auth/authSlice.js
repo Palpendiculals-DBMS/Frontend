@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+import axios from "axios";
 const initialState = {
   isAuthenticated: false,
   user: null,
@@ -24,6 +24,9 @@ const getLocalAuth = state => {
     state.isAuthenticated = true;
     state.user = user.user;
     state.token = user.token;
+    axios.defaults.headers.common = {
+      Authorization: `Bearer ${user.token}`,
+    };
   }
 
   return state;

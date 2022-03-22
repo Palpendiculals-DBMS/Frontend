@@ -24,7 +24,7 @@ function Index() {
 
           <Route path="/form/dashboard" component={Dashboard} />
 
-          <Route path="/form/anal/:id" component={FormAnalytics} />
+          <Route path="/form/analytics/:id" component={FormAnalytics} />
         </Switch>
       </Layout>
     </>

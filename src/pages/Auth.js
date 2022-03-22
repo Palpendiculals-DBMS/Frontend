@@ -61,6 +61,10 @@ function Login() {
       dispatch(setAuthData(res.data));
       setIsSubmitting(false);
 
+      axios.defaults.headers.common = {
+        Authorization: `Bearer ${res.data.token}`,
+      };
+
       toast.success("Successfully Logged In");
     } catch (err) {
       console.log(err);

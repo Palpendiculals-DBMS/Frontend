@@ -1,15 +1,17 @@
 import React, { createContext, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 
-import InputList from "../../components/FormEdit/InputList";
-import { UseFormData as useFormData } from "../../components/FormEdit/Hooks/UseFormData";
-import FormEditArea from "../../components/FormEdit/FormEditArea";
+import InputList from "../../../components/FormEdit/InputList";
+import { UseFormData as useFormData } from "../../../components/FormEdit/Hooks/UseFormData";
+import FormEditArea from "../../../components/FormEdit/FormEditArea";
 
 export const FormEditContext = createContext();
 
 const FormEdit = () => {
   const [formData, formDataActions] = useFormData();
   const history = useHistory();
+
+  const { id } = useParams();
 
   const [formSave, setFormSave] = useState({
     loading: false,
@@ -31,7 +33,7 @@ const FormEdit = () => {
               </div>
               <div
                 className={`text-red-500 mr-5 font-semibold hover:bg-red-200/50 py-1 px-2 rounded cursor-pointer`}
-                onClick={() => history.push("/form/anal/blah")}
+                onClick={() => history.push(`/form/analytics/${id}`)}
               >
                 Show Analytics
               </div>

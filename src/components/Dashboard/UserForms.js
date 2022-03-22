@@ -105,7 +105,7 @@ function UserForms() {
             onClick={() => {
               viewForm(row);
             }}
-            className="w-full text-red-400 hover:text-red-600 font-medium py-2 px-4 "
+            className="w-full text-red-400 hover:text-red-600 font-medium py-2 pr-4 pl-1 text-left"
           >
             View Form
           </button>
