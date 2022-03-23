@@ -5,6 +5,7 @@ import LongText from "./components/DLongText";
 import DDate from "./components/DDate";
 import DNumber from "./components/DNumber";
 import DCheckbox from "./components/DCheckbox";
+import DSection from "./components/DSection";
 import PropTypes from "prop-types";
 
 /**
@@ -48,6 +49,12 @@ function DisplayHandler({ question, index }) {
       return (
         <React.Fragment>
           <DDate data={question} />
+        </React.Fragment>
+      );
+    case "section":
+      return (
+        <React.Fragment>
+          <DSection data={question} />
         </React.Fragment>
       );
     default:

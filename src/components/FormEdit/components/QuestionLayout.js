@@ -45,7 +45,11 @@ function QuestionLayout(props) {
         {props.children}
 
         <div className={`form-check flex p-4 bg-white`}>
-          <div className={`flex flex-grow`}>
+          <div
+            className={`flex flex-grow  ${
+              props.noReq !== undefined ? "opacity-0 pointer-events-none" : null
+            }`}
+          >
             <Switch
               value={props.QuestionState.isRequired ? 1 : 0}
               styles={{
@@ -79,6 +83,7 @@ QuestionLayout.propTypes = {
   QuestionState: PropTypes.object,
   toggleQuestion: PropTypes.func,
   DeleteQuestion: PropTypes.func,
+  noReq: PropTypes.bool,
   children: PropTypes.any,
 };
 

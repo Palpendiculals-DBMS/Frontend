@@ -4,7 +4,7 @@ import { IoIosRadioButtonOn } from "react-icons/io";
 import { MdShortText } from "react-icons/md";
 import { ImCheckboxChecked, ImSortNumbericDesc } from "react-icons/im";
 import { BsFillCalendar2DateFill } from "react-icons/bs";
-
+import { IoIosText } from "react-icons/io";
 import { FormEditContext } from "../../pages/form/FormEdit";
 import { VscLoading } from "react-icons/vsc";
 import { BsCheck2Circle } from "react-icons/bs";
@@ -48,6 +48,11 @@ function InputList(props) {
       icon: BsFillCalendar2DateFill,
       title: "Date",
       type: "date",
+    },
+    {
+      icon: IoIosText,
+      title: "Section",
+      type: "section",
     },
   ];
 

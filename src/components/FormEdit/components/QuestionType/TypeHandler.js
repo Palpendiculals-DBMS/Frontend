@@ -5,6 +5,7 @@ import Radio from "./Radio";
 import Checkbox from "./Checkbox";
 import Date from "./Date";
 import Number from "./Number";
+import Section from "./Section";
 import PropTypes from "prop-types";
 
 const Print = ({ question, index }) => {
@@ -43,6 +44,12 @@ const Print = ({ question, index }) => {
       return (
         <React.Fragment>
           <Date question={question} index={index} />
+        </React.Fragment>
+      );
+    case "section":
+      return (
+        <React.Fragment>
+          <Section question={question} index={index} />
         </React.Fragment>
       );
     default:

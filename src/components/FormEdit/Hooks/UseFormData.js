@@ -126,6 +126,13 @@ export const UseFormData = () => {
           isRequired: false,
           title: "Untitled Question",
         };
+      case "section":
+        return {
+          id: nanoid(),
+          type: type,
+          title: "Heading Title",
+          description: "Heading Description",
+        };
     }
   };
 
