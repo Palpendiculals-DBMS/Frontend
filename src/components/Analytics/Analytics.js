@@ -9,7 +9,8 @@ export const AnalyticsContext = createContext(null);
  * @return {JSX.Element}
  */
 function Analytics() {
-  const [analyticsState, { loadAnalytics, setView }] = useAnalytics([]);
+  const [analyticsState, { loadAnalytics, setView, generateCSV }] =
+    useAnalytics([]);
   const { id } = useParams();
 
   useEffect(() => {
@@ -24,13 +25,16 @@ function Analytics() {
 
   return (
     <AnalyticsContext.Provider
-      value={{ analyticsState, loadAnalytics, setView }}
+      value={{ analyticsState, loadAnalytics, setView, generateCSV }}
     >
       <div className={``}>
         <div>
-          <h1 className={`text-lg text-slate-400`}>
-            {analyticsState.analyticsState?.submissions?.length} Responses
-          </h1>
+          <div className="flex justify-between my-3">
+            <h1 className={`text-lg text-slate-400`}>
+              {analyticsState.analyticsState?.submissions?.length} Responses
+            </h1>
+            {generateCSV()}
+          </div>
           <AllSubmissions />
         </div>
       </div>

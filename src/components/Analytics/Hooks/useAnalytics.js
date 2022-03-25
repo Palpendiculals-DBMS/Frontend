@@ -1,9 +1,14 @@
-import { useState } from "react";
+/* eslint-disable guard-for-in */
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import axios from "axios";
 
 const initialState = {
-  form: {},
+  form: {
+    description: "",
+    form: [],
+    title: "",
+  },
   isLoading: true,
   submissions: [],
 };
@@ -49,6 +54,69 @@ export default function useAnalytics() {
     }
   };
 
+  /**
+   *
+   * @param {*} objArray
+   * @return {Array}
+   */
+  function convertToCSV(objArray) {
+    const array = typeof objArray != "object" ? JSON.parse(objArray) : objArray;
+    let str = "";
+
+    for (let i = 0; i < array.length; i++) {
+      let line = "";
+      for (const index in array[i]) {
+        if (line != "") line += ",";
+
+        line += array[i][index];
+      }
+
+      str += line + "\r\n";
+    }
+
+    return str;
+  }
+
+  const generateCSV = () => {
+    console.log(analyticsState.submissions);
+    console.log(analyticsState.form);
+
+    const forms = analyticsState.form.form;
+    const submissions = analyticsState.submissions;
+
+    const headers = forms.map(item => {
+      return item.title;
+    });
+
+    const ids = forms.map(item => {
+      return item.id;
+    });
+
+    const formsubmissions = submissions.map(item => {
+      const obj = {};
+      ids.forEach(id => {
+        obj[`Q_${id}`] = item[`Q_${id}`].toString();
+      });
+      return obj;
+    });
+
+    const csv = convertToCSV([headers, ...formsubmissions]);
+
+    console.log(csv);
+
+    const element = React.createElement(
+      "a",
+      {
+        href: "data:text/csv;charset=utf-8," + csv,
+        download: "data.csv",
+        className: "text-sm bg-green-500 my-0 p-2 px-4 text-white rounded-md",
+      },
+      "Download CSV"
+    );
+
+    return element;
+  };
+
   return [
     {
       analyticsState,
@@ -58,6 +126,7 @@ export default function useAnalytics() {
     {
       loadAnalytics,
       setView,
+      generateCSV,
     },
   ];
 }
