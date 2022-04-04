@@ -95,7 +95,9 @@ export default function useAnalytics() {
     const formsubmissions = submissions.map(item => {
       const obj = {};
       ids.forEach(id => {
-        obj[`Q_${id}`] = item[`Q_${id}`].toString();
+        if (item[`Q_${id}`] !== undefined) {
+          obj[`Q_${id}`] = item[`Q_${id}`].toString();
+        }
       });
       return obj;
     });
