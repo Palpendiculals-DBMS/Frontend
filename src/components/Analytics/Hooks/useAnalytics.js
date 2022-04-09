@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import axios from "axios";
+import dayjs from "dayjs";
 
 const initialState = {
   form: {
@@ -31,13 +32,9 @@ export default function useAnalytics() {
       const res = await axios.get(
         `${process.env.REACT_APP_BASE_URL}/analytics/${id}`
       );
-      console.log(res.data);
+      console.log("Analytics Data : ", res.data);
 
-      setAnalyticsState({
-        form: res.data.form,
-        isLoading: false,
-        submissions: res.data.submissions,
-      });
+      let submissions = res.data?.submissions;
 
       const form = res.data.form?.form;
 
@@ -47,8 +44,33 @@ export default function useAnalytics() {
           map[item.id] = item.type;
         });
 
+        console.log("FORM MAP", map);
+
+        submissions = submissions.map(item => {
+          const newItem = { ...item };
+          const keysList = Object.keys(item);
+          console.log(keysList);
+
+          keysList.forEach(key => {
+            // console.log(key, map[]);
+            if (map[key.replace("Q_", "")] === "date") {
+              newItem[key] = dayjs(item[key]).format("MMM DD YYYY");
+            }
+          });
+
+          return newItem;
+        });
+
         setformMap(map);
       }
+
+      console.log("Analytics Submissions : ", submissions);
+
+      setAnalyticsState({
+        form: res.data.form,
+        isLoading: false,
+        submissions: submissions,
+      });
     } catch (err) {
       throw err;
     }
