@@ -23,7 +23,7 @@ const ModalShare = props => {
   }, []);
 
   const clickFunction = text => {
-    navigator.clipboard.writeText(Link).then(() => {
+    navigator.clipboard.writeText(text).then(() => {
       toast.success("Successfully copied to clipboard");
     });
   };
@@ -44,10 +44,44 @@ const ModalShare = props => {
         </div>
         <button
           className={`mx-2 px-5 py-1 bg-red-500 text-white shadow-sm shadow-transparent hover:shadow-lg hover:bg-red-700 hover:shadow-red-500/20 rounded-md transition-all active:bg-red-900`}
-          onClick={() => clickFunction()}
+          onClick={() => clickFunction(Link)}
         >
           Copy
         </button>
+      </div>
+      <div className={`mt-4 flex flex-col`}>
+        <h1 className="p-3 opacity-40">Embed :</h1>
+        <div
+          className={`flex-grow p-3 bg-gray-200 rounded-md border border-gray-500/30`}
+        >
+          <span className={`text-sm opacity-50`}>
+            {`
+                  <iframe
+        title="YangFormT"
+        src="${Link}"
+        height="1000px"
+          width="700px"
+          ></iframe>
+          `}
+          </span>
+        </div>
+        <div className={`flex justify-end`}>
+          <button
+            onClick={() => {
+              clickFunction(`
+                  <iframe
+        title="YangFormT"
+        src="${Link}"
+        height="1000px"
+          width="700px"
+          ></iframe>
+          `);
+            }}
+            className={`mx-2 px-5 py-2 mt-2 bg-red-500/70 text-white shadow-sm shadow-transparent hover:shadow-lg hover:bg-red-700 hover:shadow-red-500/20 rounded-md transition-all active:bg-red-900`}
+          >
+            Copy
+          </button>
+        </div>
       </div>
 
       <div className={`mt-8`}>
