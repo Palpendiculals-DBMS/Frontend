@@ -47,10 +47,7 @@ function Radio({ question, index }) {
   const addNewOption = () => {
     setQuestionState(prevState => {
       const newState = [...prevState.options];
-      newState.push({
-        title: "Untitled Option",
-        checked: false,
-      });
+      newState.push("Untitled Option");
       return {
         ...prevState,
         options: newState,

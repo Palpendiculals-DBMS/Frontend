@@ -7,6 +7,7 @@ import Form from "./FormEdit";
 
 import { useSelector } from "react-redux";
 import FormAnalytics from "./FormAnalytics";
+import FormAPI from "./FormApi";
 
 /**
  *
@@ -21,10 +22,9 @@ function Index() {
       <Layout>
         <Switch>
           <Route path="/form/edit/:id" component={Form} />
-
           <Route path="/form/dashboard" component={Dashboard} />
-
           <Route path="/form/analytics/:id" component={FormAnalytics} />
+          <Route path="/form/api" component={FormAPI} />
         </Switch>
       </Layout>
     </>

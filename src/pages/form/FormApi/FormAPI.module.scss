@@ -1,0 +1,26 @@
+.markdown {
+  @apply font-light mt-10;
+  h1 {
+    @apply text-3xl;
+  }
+
+  h2 {
+    @apply text-2xl;
+  }
+
+  h3 {
+    @apply text-xl;
+  }
+  hr {
+    @apply border-black/30;
+  }
+  a {
+    @apply text-blue-500 mx-3 border-b border-blue-500;
+  }
+  ul {
+    @apply my-4;
+    li {
+      @apply ml-4;
+    }
+  }
+}

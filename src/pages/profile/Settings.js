@@ -2,6 +2,7 @@ import React from "react";
 import Layout from "../../components/Layout/Layout";
 import { useSelector, useDispatch } from "react-redux";
 import { removeAuthData } from "../../redux/auth/authSlice";
+import APIComponent from "../../components/APIComponent";
 /**
  *
  * @return {JSX.Element}
@@ -27,6 +28,7 @@ function Settings() {
             Hi. {user.name}
           </h1>
           <p className="text-xs py-3">{user.email}</p>
+          <APIComponent />
           <button
             onClick={SignOut}
             className="mt-20 font-extralight border-b border-black"

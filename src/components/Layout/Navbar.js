@@ -29,6 +29,16 @@ User.propTypes = {
   className: PropTypes.string,
   onClick: PropTypes.func,
 };
+const routes = [
+  {
+    path: "/form/dashboard",
+    name: "Dashboard",
+  },
+  {
+    path: "/form/api",
+    name: "API",
+  },
+];
 
 /**
  *
@@ -65,9 +75,18 @@ function Navbar() {
               <img src={logo} alt="" />
             </Link>
           </div>
-          <button className="hover:bg-slate-200 p-3 rounded-lg transition-all mx-3">
-            Dashboard
-          </button>
+
+          {routes.map((route, index) => (
+            <button
+              className="hover:bg-slate-200 p-3 rounded-lg transition-all mx-3"
+              key={index}
+              onClick={() => {
+                history.push(route.path);
+              }}
+            >
+              {route.name}
+            </button>
+          ))}
 
           {auth.isAuthenticated && auth.user != null ? (
             <User

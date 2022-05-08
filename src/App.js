@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getAuthData } from "./redux/auth/authSlice";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
 
 const Forbidden = () => {
   return (
@@ -30,12 +31,10 @@ function App() {
   }, []);
 
   useEffect(() => {
-    console.log(Load, auth);
-  }, [Load]);
+    axios.post(`${process.env.REACT_APP_BASE_URL}/api/form`);
+  }, []);
 
-  useEffect(() => {
-    console.log(auth);
-  }, [auth]);
+  useEffect(() => {}, [auth]);
 
   if (!Load) {
     return <></>;
