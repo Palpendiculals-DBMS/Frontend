@@ -51,7 +51,7 @@ function APIComponent() {
         {API.isVisible ? (
           <p className="text-sm mb-1">{API.token}</p>
         ) : (
-          <p>{Array(API.token.length).fill("*").join("")}</p>
+          <p>{Array(API?.token?.length).fill("*").join("")}</p>
         )}
       </div>
       <div className="w-full flex">
